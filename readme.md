@@ -1,6 +1,6 @@
-## Laravel 5 Quickstart
+# Laravel 5 Quickstart
 
-#### 介绍
+## 介绍
 
 项目基于laravel5.5开发，日常开发常用的模块已经写好，不用每次开发都重新写代码。
 
@@ -10,7 +10,7 @@
 
 
 
-#### 安装
+## 安装
 
 1.**克隆项目**
 
@@ -34,7 +34,7 @@ php artisan migrate && php artisan db:seed
 
 
 
-#### 用到的包
+## 用到的包
 
 这些包都已经在项目中集成，没用过的可以在github看文档
 
@@ -52,7 +52,9 @@ php artisan migrate && php artisan db:seed
 
 
 
-#### 其他包推荐
+
+
+## 其他包推荐
 
 这些包没有在项目中集成，根据实际需求决定是否需要引入，具体功能进项目主页查看
 
