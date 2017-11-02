@@ -39,17 +39,17 @@ php artisan migrate && php artisan db:seed
 
 这些包都已经在项目中集成，没用过的可以在github看文档
 
-1. [dingo/api](https://github.com/dingo/api)
-2. [tymon/jwt-auth](https://github.com/tymondesigns/jwt-auth)
-3. [jeroennoten/laravel-adminlte](https://github.com/jeroennoten/laravel-adminlte)
-4. [hieu-le/active](https://github.com/letrunghieu/active)
-5. [laravelcollective/html](https://github.com/LaravelCollective/html)
-6. [overtrue/laravel-filesystem-qiniu](https://github.com/overtrue/laravel-filesystem-qiniu)
-7. [overtrue/laravel-ueditor](https://github.com/overtrue/laravel-ueditor)
-8. [overtrue/laravel-wechat](https://github.com/overtrue/laravel-wechat)
-9. [prettus/l5-repository](https://github.com/andersao/l5-repository)
-10. [spatie/laravel-permission](https://github.com/spatie/laravel-permission)
-11. [yajra/laravel-datatables](https://github.com/yajra/laravel-datatables)
+
+- [InfyOmLabs/adminlte-templates](https://github.com/InfyOmLabs/adminlte-templates)
+- [hieu-le/active](https://github.com/letrunghieu/active)
+- [laravelcollective/html](https://github.com/LaravelCollective/html)
+- [overtrue/laravel-filesystem-qiniu](https://github.com/overtrue/laravel-filesystem-qiniu)
+- [overtrue/laravel-ueditor](https://github.com/overtrue/laravel-ueditor)
+- [overtrue/laravel-wechat](https://github.com/overtrue/laravel-wechat)
+- [prettus/l5-repository](https://github.com/andersao/l5-repository)
+- [spatie/laravel-permission](https://github.com/spatie/laravel-permission)
+- [yajra/laravel-datatables](https://github.com/yajra/laravel-datatables)
+- [InfyOmLabs/laravel-generator](https://github.com/InfyOmLabs/laravel-generator)
 
 
 
@@ -59,11 +59,13 @@ php artisan migrate && php artisan db:seed
 
 这些包没有在项目中集成，根据实际需求决定是否需要引入，具体功能进项目主页查看
 
-1. [intervention/image](https://github.com/Intervention/image)
-2. [ixudra/curl](https://github.com/ixudra/curl)
-3. [league/uri](https://github.com/thephpleague/uri)
-4. [maatwebsite/excel](https://github.com/Maatwebsite/Laravel-Excel)
-5. [orzcc/taobao-top-client](https://github.com/orzcc/taobao-top-client)
-6. [overtrue/laravel-wechat](https://github.com/overtrue/laravel-wechat)
-7. [sentry/sentry-laravel](https://github.com/getsentry/sentry-laravel)
-8. [vinkla/hashids](https://github.com/vinkla/laravel-hashids)
+- [intervention/image](https://github.com/Intervention/image)
+- [ixudra/curl](https://github.com/ixudra/curl)
+- [league/uri](https://github.com/thephpleague/uri)
+- [maatwebsite/excel](https://github.com/Maatwebsite/Laravel-Excel)
+- [orzcc/taobao-top-client](https://github.com/orzcc/taobao-top-client)
+- [overtrue/laravel-wechat](https://github.com/overtrue/laravel-wechat)
+- [sentry/sentry-laravel](https://github.com/getsentry/sentry-laravel)
+- [vinkla/hashids](https://github.com/vinkla/laravel-hashids)
+- [dingo/api](https://github.com/dingo/api)
+- [tymon/jwt-auth](https://github.com/tymondesigns/jwt-auth)
