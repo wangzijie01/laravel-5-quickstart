@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'AdminLTE',
 
     'title_prefix' => '',
 
@@ -219,5 +219,6 @@ return [
     'plugins' => [
         'datatables' => true,
         'select2'    => true,
+        'chartjs' => true,
     ],
 ];
