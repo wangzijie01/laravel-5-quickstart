@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DataTables\UsersDataTable;
+use App\Http\Requests\User\StoreUserRequest;
+use App\Http\Requests\User\UpdateUserRequest;
+use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,78 +28,101 @@ class UserController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param UsersDataTable $dataTable
+     * @return mixed
      */
-    public function index()
+    public function index(UsersDataTable $dataTable)
     {
-        //
+        return $dataTable->render('admin.user.index');
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-        //
+        return view('admin.user.create');
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param StoreUserRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+        $data = [
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'password' => bcrypt($request->get('password')),
+        ];
+
+        $user = $this->userRepository->create($data);
+        //用户创建失败
+        if(!$user){
+            flash('用户创建失败')->error()->important();
+            return;
+        }
+        //如果为管理员
+        if($request->get('is_administrator') == 1){
+            $user->assignRole('administrator');
+        }
+        flash('用户创建成功')->success()->important();
+        return redirect()->route('admin.user.index');
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param User $user
+     * @return $this
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('admin.user.show')
+            ->with('user',$user);
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param User $user
+     * @return $this
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('admin.user.edit')
+            ->with('user',$user);
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param UpdateUserRequest $request
+     * @param User $user
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $password = $request->get('password');
+        //设置了新密码
+        if($password){
+            $data = [
+                'password' => bcrypt($password),
+            ];
+            $result = $this->userRepository->update($data,$user->id);
+        }
+        //如果设置用户为管理员
+        if($request->get('is_administrator') == 1 && !$user->hasRole('administrator')){
+            $user->assignRole('administrator');
+        }
+        //非管理员
+        if($request->get('is_administrator') != 1 ){
+            $user->removeRole('administrator');
+        }
+        flash('用户信息修改成功')->success()->important();
+        return redirect()->route('admin.user.index');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param User $user
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $this->userRepository->delete($user->id);
+        flash('用户删除成功')->success()->important();
+        return redirect()->route('admin.user.index');
     }
 }

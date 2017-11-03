@@ -36,5 +36,6 @@ Route::namespace('Admin')
     ->as('admin.')
     ->prefix('admin')
     ->group(function () {
-    Route::get('/','DashboardController@index')->name('dashboard');
+        Route::get('/','DashboardController@index')->name('dashboard');
+        Route::resource('/user','UserController');
 });

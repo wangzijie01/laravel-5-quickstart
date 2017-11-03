@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title_prefix', config('adminlte.title_prefix', ''))
 @yield('title', config('adminlte.title', 'AdminLTE 2'))
 @yield('title_postfix', config('adminlte.title_postfix', ''))</title>
@@ -25,7 +26,8 @@
 
     @if(config('adminlte.plugins.datatables'))
         <!-- DataTables -->
-    <link href="https://cdn.bootcss.com/datatables/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
+
     @endif
 
     @yield('adminlte_css')
@@ -34,6 +36,11 @@
     <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script>
+        window.Laravel = '{!!   json_encode([
+                'csrfToken' => csrf_token(),
+            ]) !!}';
+    </script>
 </head>
 <body class="hold-transition @yield('body_class')">
 
@@ -50,6 +57,7 @@
 @if(config('adminlte.plugins.datatables'))
     <!-- DataTables -->
 <script src="https://cdn.bootcss.com/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.bootcss.com/datatables/1.10.16/js/dataTables.bootstrap.min.js"></script>
 @endif
 
 @yield('adminlte_js')

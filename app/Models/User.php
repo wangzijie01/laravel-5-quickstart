@@ -33,4 +33,49 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    /**
+     * @return string
+     */
+    public function getActionButtonsAttribute()
+    {
+        return
+            $this->getShowButtonAttribute().
+            $this->getEditButtonAttribute().
+            $this->getDeleteButtonAttribute();
+    }
+
+    /**
+     * @return string
+     */
+    public function getShowButtonAttribute()
+    {
+        return '<a href="'.route('admin.user.show', $this).'" class="btn btn-xs btn-info"><i class="fa fa-search" data-toggle="tooltip" data-placement="top" title="查看详情"></i></a> ';
+    }
+
+    /**
+     * @return string
+     */
+    public function getEditButtonAttribute()
+    {
+        return '<a href="'.route('admin.user.edit', $this).'" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="编辑"></i></a> ';
+    }
+
+    /**
+     * @return string
+     */
+    public function getDeleteButtonAttribute()
+    {
+        return '<a href="'.route('admin.user.destroy', $this).'"
+             data-method="delete"
+             data-trans-button-cancel="取消"
+             data-trans-button-confirm="删除"
+             data-trans-title="你确定要这么做吗?"
+             data-trans-text="用户删除后将不成恢复"
+             class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="删除"></i></a> ';
+    }
+
+
+
 }

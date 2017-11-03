@@ -110,9 +110,10 @@ return [
     'menu' => [
         'MAIN NAVIGATION',
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => '用户管理',
+            'url'  => 'admin/user',
+            'icon' => 'user',
+            'can'  => 'manage-user',
         ],
         [
             'text'        => 'Pages',
@@ -128,11 +129,6 @@ return [
             'icon' => 'user',
         ],
         [
-            'text' => 'Change Password',
-            'url'  => 'admin/settings',
-            'icon' => 'lock',
-        ],
-        [
             'text'    => 'Multilevel',
             'icon'    => 'share',
             'submenu' => [
@@ -143,26 +139,6 @@ return [
                 [
                     'text'    => 'Level One',
                     'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Level Two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'Level Two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
                 ],
                 [
                     'text' => 'Level One',
