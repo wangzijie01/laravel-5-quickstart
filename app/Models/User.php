@@ -34,8 +34,24 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
     /**
+     * 获取当前用户所属角色
+     * @return string
+     */
+    public function getRoleNameAttribute()
+    {
+        $roles = $this->getRoleNames(); // Returns a collection
+        $string = "";
+        foreach($roles as $role){
+            $string .= "<label class='label label-success'>{$role}</label>";
+        }
+        if($string == ""){
+            $string = "<label class='label label-info'>无</label>";
+        }
+        return $string;
+    }
+    /**
+     * 操作按钮
      * @return string
      */
     public function getActionButtonsAttribute()
@@ -47,25 +63,28 @@ class User extends Authenticatable
     }
 
     /**
+     * 用户详情
      * @return string
      */
-    public function getShowButtonAttribute()
+    protected function getShowButtonAttribute()
     {
         return '<a href="'.route('admin.user.show', $this).'" class="btn btn-xs btn-info"><i class="fa fa-search" data-toggle="tooltip" data-placement="top" title="查看详情"></i></a> ';
     }
 
     /**
+     * 编辑用户
      * @return string
      */
-    public function getEditButtonAttribute()
+    protected function getEditButtonAttribute()
     {
         return '<a href="'.route('admin.user.edit', $this).'" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="编辑"></i></a> ';
     }
 
     /**
+     * 删除用户
      * @return string
      */
-    public function getDeleteButtonAttribute()
+    protected function getDeleteButtonAttribute()
     {
         return '<a href="'.route('admin.user.destroy', $this).'"
              data-method="delete"
@@ -75,7 +94,4 @@ class User extends Authenticatable
              data-trans-text="用户删除后将不成恢复"
              class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="删除"></i></a> ';
     }
-
-
-
 }

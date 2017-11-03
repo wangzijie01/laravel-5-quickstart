@@ -16,7 +16,10 @@ class UsersDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
-            ->escapeColumns("*")
+            ->escapeColumns([])
+            ->addColumn('role', function ($model) {
+                return $model->role_name;
+            })
             ->addColumn('action', function ($model) {
                 return $model->action_buttons;
             });
@@ -72,6 +75,7 @@ class UsersDataTable extends DataTable
             ['data' => 'id', 'name' => 'id', 'searchable' => false,'title' => 'ID'],
             ['data' => 'name', 'name' => 'name', 'orderable' => false, 'title' => '用户名'],
             ['data' => 'email', 'name' => 'email', 'orderable' => false, 'title' => '邮箱'],
+            ['data' => 'role', 'name' => 'role', 'orderable' => false, 'searchable' => false,'title' => '角色'],
             ['data' => 'created_at', 'name' => 'created_at', 'searchable' => false, 'title' => '创建时间'],
             ['data' => 'updated_at', 'name' => 'updated_at', 'searchable' => false, 'title' => '更新时间'],
         ];
