@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\User;
 use App\DataTables\UsersDataTable;
+use App\Http\Controllers\Controller;
+use App\Repositories\UserRepository;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
-use App\Models\User;
-use App\Repositories\UserRepository;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
-
     /**
      * @var UserRepository
      */
@@ -58,15 +56,17 @@ class UserController extends Controller
 
         $user = $this->userRepository->create($data);
         //用户创建失败
-        if(!$user){
+        if (! $user) {
             flash('用户创建失败')->error()->important();
+
             return;
         }
         //如果为管理员
-        if($request->get('is_administrator') == 1){
+        if ($request->get('is_administrator') == 1) {
             $user->assignRole('administrator');
         }
         flash('用户创建成功')->success()->important();
+
         return redirect()->route('admin.user.index');
     }
 
@@ -77,7 +77,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         return view('admin.user.show')
-            ->with('user',$user);
+            ->with('user', $user);
     }
 
     /**
@@ -87,7 +87,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         return view('admin.user.edit')
-            ->with('user',$user);
+            ->with('user', $user);
     }
 
     /**
@@ -98,21 +98,22 @@ class UserController extends Controller
     {
         $password = $request->get('password');
         //设置了新密码
-        if($password){
+        if ($password) {
             $data = [
                 'password' => bcrypt($password),
             ];
-            $result = $this->userRepository->update($data,$user->id);
+            $result = $this->userRepository->update($data, $user->id);
         }
         //如果设置用户为管理员
-        if($request->get('is_administrator') == 1 && !$user->hasRole('administrator')){
+        if ($request->get('is_administrator') == 1 && ! $user->hasRole('administrator')) {
             $user->assignRole('administrator');
         }
         //非管理员
-        if($request->get('is_administrator') != 1 ){
+        if ($request->get('is_administrator') != 1) {
             $user->removeRole('administrator');
         }
         flash('用户信息修改成功')->success()->important();
+
         return redirect()->route('admin.user.index');
     }
 
@@ -123,6 +124,7 @@ class UserController extends Controller
     {
         $this->userRepository->delete($user->id);
         flash('用户删除成功')->success()->important();
+
         return redirect()->route('admin.user.index');
     }
 }

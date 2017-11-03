@@ -1,13 +1,13 @@
 <?php
 
-use Faker\Factory as Faker;
 use App\Models\Posts;
+use Faker\Factory as Faker;
 use App\Repositories\PostsRepository;
 
 trait MakePostsTrait
 {
     /**
-     * Create fake instance of Posts and save it in database
+     * Create fake instance of Posts and save it in database.
      *
      * @param array $postsFields
      * @return Posts
@@ -17,11 +17,12 @@ trait MakePostsTrait
         /** @var PostsRepository $postsRepo */
         $postsRepo = App::make(PostsRepository::class);
         $theme = $this->fakePostsData($postsFields);
+
         return $postsRepo->create($theme);
     }
 
     /**
-     * Get fake instance of Posts
+     * Get fake instance of Posts.
      *
      * @param array $postsFields
      * @return Posts
@@ -32,7 +33,7 @@ trait MakePostsTrait
     }
 
     /**
-     * Get fake data of Posts
+     * Get fake data of Posts.
      *
      * @param array $postFields
      * @return array
@@ -46,7 +47,7 @@ trait MakePostsTrait
             'category_id' => $fake->word,
             'content' => $fake->text,
             'created_at' => $fake->word,
-            'updated_at' => $fake->word
+            'updated_at' => $fake->word,
         ], $postsFields);
     }
 }

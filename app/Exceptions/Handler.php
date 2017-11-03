@@ -52,6 +52,7 @@ class Handler extends ExceptionHandler
         if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
             return redirect('/');
         }
+
         return parent::render($request, $exception);
     }
 }
