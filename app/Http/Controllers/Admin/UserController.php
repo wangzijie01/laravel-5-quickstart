@@ -2,11 +2,27 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
+
+    /**
+     * @var UserRepository
+     */
+    protected $userRepository;
+
+    /**
+     * UserController constructor.
+     * @param UserRepository $userRepository
+     */
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -11,17 +11,28 @@
 |
 */
 
+/**
+ * 前台
+ */
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/home','HomeController@index')->name('home');
+Route::get('/test','TestController@index')->name('test');
 
+
+/**
+ * Auth
+ */
 Auth::routes();
 
 
+/**
+ * 后台
+ */
 Route::namespace('Admin')
-    ->middleware(['auth'])
+  //  ->middleware(['role:administrator'])
     ->as('admin.')
     ->prefix('admin')
     ->group(function () {

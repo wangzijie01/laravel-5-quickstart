@@ -48,6 +48,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        //捕获laravel-permission异常 然后跳转到主页
+        if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
+            return redirect('/');
+        }
         return parent::render($request, $exception);
     }
 }
