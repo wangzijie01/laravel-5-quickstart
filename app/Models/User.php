@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -35,23 +35,25 @@ class User extends Authenticatable
     ];
 
     /**
-     * 获取当前用户所属角色
+     * 获取当前用户所属角色.
      * @return string
      */
     public function getRoleNameAttribute()
     {
         $roles = $this->getRoleNames(); // Returns a collection
-        $string = "";
-        foreach($roles as $role){
+        $string = '';
+        foreach ($roles as $role) {
             $string .= "<label class='label label-success'>{$role}</label>";
         }
-        if($string == ""){
+        if ($string == '') {
             $string = "<label class='label label-info'>无</label>";
         }
+
         return $string;
     }
+
     /**
-     * 操作按钮
+     * 操作按钮.
      * @return string
      */
     public function getActionButtonsAttribute()
@@ -63,7 +65,7 @@ class User extends Authenticatable
     }
 
     /**
-     * 用户详情
+     * 用户详情.
      * @return string
      */
     protected function getShowButtonAttribute()
@@ -72,7 +74,7 @@ class User extends Authenticatable
     }
 
     /**
-     * 编辑用户
+     * 编辑用户.
      * @return string
      */
     protected function getEditButtonAttribute()
@@ -81,7 +83,7 @@ class User extends Authenticatable
     }
 
     /**
-     * 删除用户
+     * 删除用户.
      * @return string
      */
     protected function getDeleteButtonAttribute()

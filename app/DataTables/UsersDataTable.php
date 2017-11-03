@@ -46,7 +46,7 @@ class UsersDataTable extends DataTable
         return $this->builder()
                     ->columns($this->colums())
                     ->minifiedAjax()
-                    ->addAction(['width' => '80px','title'=>'操作'])
+                    ->addAction(['width' => '80px', 'title'=>'操作'])
                     ->parameters($this->getBuilderParameters());
     }
 
@@ -62,7 +62,7 @@ class UsersDataTable extends DataTable
             'name',
             'email',
             'created_at',
-            'updated_at'
+            'updated_at',
         ];
     }
 
@@ -72,10 +72,10 @@ class UsersDataTable extends DataTable
     protected function colums()
     {
         return [
-            ['data' => 'id', 'name' => 'id', 'searchable' => false,'title' => 'ID'],
+            ['data' => 'id', 'name' => 'id', 'searchable' => false, 'title' => 'ID'],
             ['data' => 'name', 'name' => 'name', 'orderable' => false, 'title' => '用户名'],
             ['data' => 'email', 'name' => 'email', 'orderable' => false, 'title' => '邮箱'],
-            ['data' => 'role', 'name' => 'role', 'orderable' => false, 'searchable' => false,'title' => '角色'],
+            ['data' => 'role', 'name' => 'role', 'orderable' => false, 'searchable' => false, 'title' => '角色'],
             ['data' => 'created_at', 'name' => 'created_at', 'searchable' => false, 'title' => '创建时间'],
             ['data' => 'updated_at', 'name' => 'updated_at', 'searchable' => false, 'title' => '更新时间'],
         ];
@@ -101,6 +101,6 @@ class UsersDataTable extends DataTable
      */
     protected function filename()
     {
-        return '用户列表_' . time();
+        return '用户列表_'.time();
     }
 }
