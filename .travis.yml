@@ -23,9 +23,11 @@ before_script:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
 script:
+  - if [[ $COVERAGE = 1 ]]; then ./vendor/bin/phpunit --coverage-clover=coverage.xml ; fi
+  - if [[ $COVERAGE = 0 ]]; then ./vendor/bin/phpunit ; fi
 
 after_success:
-
+  - if [[ $COVERAGE = 1 ]]; then bash <(curl -s https://codecov.io/bash); fi
 
 after_failure:
   - cat storage/logs/laravel-`date +"%Y-%m-%d"`.log
