@@ -1,5 +1,5 @@
 # Laravel 5 Quickstart
-[![StyleCI](https://styleci.io/repos/109128127/shield?branch=master)](https://styleci.io/repos/109128127) [![Build Status](https://travis-ci.org/niugengyun/laravel-5-quickstart.svg?branch=master)](https://travis-ci.org/niugengyun/laravel-5-quickstart) [![Coverage Status](https://coveralls.io/repos/github/niugengyun/laravel-5-quickstart/badge.svg?branch=master)](https://coveralls.io/github/niugengyun/laravel-5-quickstart?branch=master)
+[![StyleCI](https://styleci.io/repos/109128127/shield?branch=master)](https://styleci.io/repos/109128127) [![Build Status](https://travis-ci.org/niugengyun/laravel-5-quickstart.svg?branch=master)](https://travis-ci.org/niugengyun/laravel-5-quickstart) [![Coverage Status](https://coveralls.io/repos/github/niugengyun/laravel-5-quickstart/badge.svg?branch=master)](https://coveralls.io/github/niugengyun/laravel-5-quickstart?branch=master) [![Dependency Status](https://www.versioneye.com/user/projects/59fdec8415f0d7004ef73040/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/59fdec8415f0d7004ef73040)
 
 ## 介绍
 
