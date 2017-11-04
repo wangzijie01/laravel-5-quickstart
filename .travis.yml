@@ -5,11 +5,12 @@ language: php
 
 cache:
   directories:
+    - vendor
     - $HOME/.composer/cache
 
-env:
-    global:
-      - COVERAGE=0
+php:
+  - 7.0
+  - 7.1
 
 matrix:
   fast_finish: true
@@ -18,9 +19,21 @@ matrix:
     - php: 7.1
       env: COVERAGE=1
 
+before_install:
+  - if [[ "$DB_CONNECTION" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS laravel_test;" -uroot; fi
+
+env:
+  global:
+    - COVERAGE=0
+  - DB_CONNECTION=mysql DB_DATABASE=laravel_test DB_USERNAME=root DB_PASSWORD='' DB_PORT=3306
+  - DB_CONNECTION=mysql DB_DATABASE=laravel_test DB_USERNAME=root DB_PASSWORD='' DB_PORT=3306 COVERAGE=1
+
 before_script:
-  - travis_retry composer self-update
+  - travis_retry composer self-update || true
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+  - travis_retry composer run-script post-root-package-install
+  - travis_retry composer run-script post-create-project-cmd
+  - travis_retry composer run-script post-install-cmd
 
 script:
   - if [[ $COVERAGE = 1 ]]; then ./vendor/bin/phpunit --coverage-clover=coverage.xml ; fi
