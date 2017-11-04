@@ -26,6 +26,7 @@
         "mockery/mockery": "0.9.*",
         "barryvdh/laravel-debugbar": "dev-master",
         "barryvdh/laravel-ide-helper": "^2.4",
+        "php-coveralls/php-coveralls": "~1.0",
         "phpunit/phpunit": "~6.0"
     },
     "autoload": {
