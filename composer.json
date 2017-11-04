@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "niugengyun/laravel-5-quickstart",
+    "description": "快速开始开发你的laravel5项目",
+    "keywords": ["laravel","laravel-5-boilerplate","laravel-adminlte", "laravel-application"],
     "license": "MIT",
     "type": "project",
     "require": {
