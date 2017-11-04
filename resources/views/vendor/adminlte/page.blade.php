@@ -1,9 +1,6 @@
 @extends('adminlte::master')
-
 @section('adminlte_css')
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/skins/skin-' . config('adminlte.skin', 'blue') . '.min.css')}} ">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css">
-
     @stack('css')
     @yield('css')
 @stop
@@ -133,11 +130,7 @@
 @stop
 
 @section('adminlte_js')
-    <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
-    <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
-    <script src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-    <script src="{{ mix('js/admin.js') }}"></script>
-
+    <script src="{{ mix('js/admin/all.js') }}"></script>
     @stack('js')
     @yield('js')
 @stop
