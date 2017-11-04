@@ -1,5 +1,5 @@
 # Laravel 5 Quickstart
-[![StyleCI](https://styleci.io/repos/109128127/shield?branch=master)](https://styleci.io/repos/109128127)
+[![StyleCI](https://styleci.io/repos/109128127/shield?branch=master)](https://styleci.io/repos/109128127) [![Build Status](https://travis-ci.org/niugengyun/laravel-5-quickstart.svg?branch=master)](https://travis-ci.org/niugengyun/laravel-5-quickstart)
 
 ## 介绍
 
