@@ -47,7 +47,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        $message =  [
+        $message = [
             'name.required' => '请填写用户名',
             'name.unique' => '用户已存在',
             'email.required' => '请填写邮箱',
@@ -62,7 +62,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-        ],$message);
+        ], $message);
     }
 
     /**
