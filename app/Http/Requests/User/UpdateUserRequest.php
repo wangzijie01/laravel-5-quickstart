@@ -27,4 +27,18 @@ class UpdateUserRequest extends FormRequest
             'password' => 'sometimes|confirmed',
         ];
     }
+
+    /**
+     * 获取已定义的验证规则的错误消息。
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'password.required' => '请填写密码',
+            'password.min' => '密码最低为6个字符',
+            'password.confirmed' => '密码和确认密码不一致',
+        ];
+    }
 }

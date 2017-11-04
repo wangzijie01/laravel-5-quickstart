@@ -49,9 +49,9 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $data = [
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'password' => bcrypt($request->get('password')),
+            'name' => request('name'),
+            'email' => request('email'),
+            'password' => bcrypt(request('password')),
         ];
 
         $user = $this->userRepository->create($data);
@@ -62,7 +62,7 @@ class UserController extends Controller
             return;
         }
         //如果为管理员
-        if ($request->get('is_administrator') == 1) {
+        if (request('is_administrator') == 1) {
             $user->assignRole('administrator');
         }
         flash('用户创建成功')->success()->important();
@@ -96,20 +96,17 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        $password = $request->get('password');
+        $password = request('password');
         //设置了新密码
         if ($password) {
-            $data = [
-                'password' => bcrypt($password),
-            ];
-            $result = $this->userRepository->update($data, $user->id);
+           $this->userRepository->update(bcrypt($password), $user->id);
         }
         //如果设置用户为管理员
-        if ($request->get('is_administrator') == 1 && ! $user->hasRole('administrator')) {
+        if (request('is_administrator') == 1 && ! $user->hasRole('administrator')) {
             $user->assignRole('administrator');
         }
         //非管理员
-        if ($request->get('is_administrator') != 1) {
+        if (request('is_administrator') != 1) {
             $user->removeRole('administrator');
         }
         flash('用户信息修改成功')->success()->important();
