@@ -99,7 +99,7 @@ class UserController extends Controller
         $password = request('password');
         //设置了新密码
         if ($password) {
-           $this->userRepository->update(bcrypt($password), $user->id);
+            $this->userRepository->update(bcrypt($password), $user->id);
         }
         //如果设置用户为管理员
         if (request('is_administrator') == 1 && ! $user->hasRole('administrator')) {
