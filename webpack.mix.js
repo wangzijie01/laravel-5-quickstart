@@ -17,7 +17,6 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
 //后台
 mix.js('resources/assets/js/admin/app.js', 'public/js/admin')
-    .extract(['jquery'])
 
 mix.scripts([
     'public/vendor/adminlte/dist/js/adminlte.js',
