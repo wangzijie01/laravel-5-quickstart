@@ -28,7 +28,7 @@ before_script:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
   - travis_retry composer run-script post-root-package-install
   - travis_retry composer run-script post-create-project-cmd
-  - travis_retry composer run-script post-install-cmd
+  - travis_retry composer run-script post-autoload-dump
 
 script:
   - if [[ $COVERAGE = 1 ]]; then ./vendor/bin/phpunit --coverage-clover=coverage.xml ; fi
