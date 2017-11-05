@@ -66,13 +66,14 @@
                 <div class="top-right links">
                     @auth
                         @role('administrator')
-                            <a href="{{ route('admin.dashboard') }}">Admin</a>
+                            <a href="{{ route('home') }}">主页</a>
+                            <a href="{{ route('admin.dashboard') }}">后台</a>
                         @else
-                            <a href="{{ route('home') }}">Home</a>
+                            <a href="{{ route('home') }}">主页</a>
                         @endrole
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
+                        <a href="{{ route('login') }}">登录</a>
+                        <a href="{{ route('register') }}">注册</a>
                     @endauth
                 </div>
             @endif
