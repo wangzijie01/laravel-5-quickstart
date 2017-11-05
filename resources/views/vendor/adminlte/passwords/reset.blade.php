@@ -5,6 +5,7 @@
     @yield('css')
 @stop
 
+@section('title', '重置密码')
 @section('body_class', 'login-page')
 
 @section('body')
@@ -14,7 +15,7 @@
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
-            <p class="login-box-msg">{{ trans('adminlte::adminlte.password_reset_message') }}</p>
+            <p class="login-box-msg">重置密码</p>
             <form action="{{ url(config('adminlte.password_reset_url', 'password/reset')) }}" method="post">
                 {!! csrf_field() !!}
 
@@ -52,7 +53,7 @@
                 </div>
                 <button type="submit"
                         class="btn btn-primary btn-block btn-flat"
-                >{{ trans('adminlte::adminlte.reset_password') }}</button>
+                >重置密码</button>
             </form>
         </div>
         <!-- /.login-box-body -->

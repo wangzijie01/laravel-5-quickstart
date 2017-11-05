@@ -5,7 +5,9 @@
     @yield('css')
 @stop
 
+@section('title', '找回密码')
 @section('body_class', 'login-page')
+
 
 @section('body')
     <div class="login-box">
@@ -14,7 +16,7 @@
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
-            <p class="login-box-msg">{{ trans('adminlte::adminlte.password_reset_message') }}</p>
+            <p class="login-box-msg">找回密码</p>
             @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}
@@ -35,7 +37,7 @@
                 </div>
                 <button type="submit"
                         class="btn btn-primary btn-block btn-flat"
-                >{{ trans('adminlte::adminlte.send_password_reset_link') }}</button>
+                >发送验证邮件</button>
             </form>
         </div>
         <!-- /.login-box-body -->
