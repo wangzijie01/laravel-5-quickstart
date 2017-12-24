@@ -3,7 +3,6 @@
 <a href="https://styleci.io/repos/109128127"><img src="https://styleci.io/repos/109128127/shield?branch=master" alt="StyleCI"></a>
 <a href="https://travis-ci.org/niugengyun/laravel-5-quickstart"><img src="https://travis-ci.org/niugengyun/laravel-5-quickstart.svg?branch=master" alt="Build Status"></a>
 <a href='https://coveralls.io/github/niugengyun/laravel-5-quickstart?branch=master'><img src='https://coveralls.io/repos/github/niugengyun/laravel-5-quickstart/badge.svg?branch=master' alt='Coverage Status' /></a>
-<a href='https://www.versioneye.com/user/projects/59fdec8415f0d7004ef73040'><img src='https://www.versioneye.com/user/projects/59fdec8415f0d7004ef73040/badge.svg?style=flat-square' alt="Dependency Status" /></a>
 <a href="https://packagist.org/packages/niugengyun/laravel-5-quickstart"><img src="https://poser.pugx.org/niugengyun/laravel-5-quickstart/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/niugengyun/laravel-5-quickstart"><img src="https://poser.pugx.org/niugengyun/laravel-5-quickstart/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/niugengyun/laravel-5-quickstart"><img src="https://poser.pugx.org/niugengyun/laravel-5-quickstart/license.svg" alt="License"></a>
