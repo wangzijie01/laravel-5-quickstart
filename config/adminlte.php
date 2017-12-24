@@ -108,13 +108,13 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        '主菜单',
         [
-            'text' => '用户管理',
-            'url'  => 'admin/user',
-            'icon' => 'user',
-            'can'  => 'manage-user',
+            'text' => '系统主页',
+            'url'  => 'admin',
+            'icon' => 'dashboard',
         ],
+
         [
             'text'        => 'Pages',
             'url'         => 'admin/pages',
@@ -122,10 +122,10 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
-        'ACCOUNT SETTINGS',
+        '系统',
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
+            'text' => '用户管理',
+            'url'  => 'admin/user',
             'icon' => 'user',
         ],
         [
@@ -146,7 +146,7 @@ return [
                 ],
             ],
         ],
-        'LABELS',
+        '标签',
         [
             'text'       => 'Important',
             'icon_color' => 'red',
@@ -195,6 +195,6 @@ return [
     'plugins' => [
         'datatables' => true,
         'select2'    => false,
-        'chartjs' => false,
+        'chartjs' => true,
     ],
 ];

@@ -127,4 +127,8 @@ $(function(){
         });
     });
 
+    $('table').on('draw.dt', function() {
+        $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="popover"]').popover();
+    })
 });

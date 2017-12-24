@@ -42,6 +42,11 @@
     <script src="https://cdn.bootcss.com/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.bootcss.com/datatables/1.10.16/js/dataTables.bootstrap.min.js"></script>
 @endif
+@if(config('adminlte.plugins.chartjs'))
+    <script src="https://cdn.bootcss.com/Chart.js/2.7.1/Chart.min.js"></script>
+    {{--<script src="https://cdn.bootcss.com/Chart.js/1.1.1/Chart.js"></script>--}}
+
+@endif
 @yield('adminlte_js')
 
 </body>
