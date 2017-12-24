@@ -108,6 +108,6 @@ class MemberDataTable extends DataTable
      */
     protected function filename()
     {
-        return '会员列表_' . time();
+        return '会员列表_'.time();
     }
 }

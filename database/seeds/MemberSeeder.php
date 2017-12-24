@@ -13,6 +13,6 @@ class MemberSeeder extends Seeder
     {
         DB::table('members')->truncate();
 
-        factory(App\Models\Member::class,100)->create();
+        factory(App\Models\Member::class, 100)->create();
     }
 }

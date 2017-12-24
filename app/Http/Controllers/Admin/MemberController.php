@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\Scopes\MemberScope;
 use App\Models\Member;
 use App\DataTables\MemberDataTable;
 use App\Http\Controllers\Controller;
+use App\DataTables\Scopes\MemberScope;
 use App\Repositories\MemberRepository;
-use App\Http\Requests\Member\UpdateMemberRequest;
 use Illuminate\Support\Facades\Request;
+use App\Http\Requests\Member\UpdateMemberRequest;
 
 class MemberController extends Controller
 {
@@ -38,9 +38,9 @@ class MemberController extends Controller
                 ->addScope(new MemberScope())
                 ->render('admin.member.index');
         }
+
         return $dataTable->render('admin.member.index');
     }
-
 
     /**
      * @param Member $member
@@ -69,11 +69,10 @@ class MemberController extends Controller
     public function update(UpdateMemberRequest $request, Member $member)
     {
         $data = [
-            'nickname' => request('nickname')
+            'nickname' => request('nickname'),
         ];
 
         $this->memberRepository->update($data, $member->id);
-
 
         flash('会员信息修改成功')->success()->important();
 

@@ -25,7 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
  */
 Auth::routes();
 
-/**
+/*
  * 微信
  */
 Route::namespace('Wechat')
@@ -46,6 +46,6 @@ Route::namespace('Admin')
         Route::get('/', 'DashboardController@index')->name('dashboard');
         Route::resource('user', 'UserController');
         Route::resource('member', 'MemberController', ['except' => [
-            'create', 'store'
+            'create', 'store',
         ]]);
     });
