@@ -32,7 +32,6 @@ class EventMessageHandler implements EventHandlerInterface
             case 'SCAN':
                 //用户已关注公众号,并且重新扫描了公众号二维码
                 $eventKey = 'qrscene_'.$eventKey;
-
                 return '用户已关注公众号,并且重新扫描了公众号二维码';
                 break;
             default:
