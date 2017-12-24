@@ -17,8 +17,8 @@
 
 1. PHP >= 7.0
 2. **[Composer](https://getcomposer.org/)**
-3. openssl 拓展
-4. fileinfo 拓展（素材管理模块需要用到）
+3. PHP openssl 扩展
+4. PHP fileinfo 扩展
 
 ## Introduction
 
