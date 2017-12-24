@@ -1,11 +1,11 @@
 <?php
+
 namespace App\Handler;
 
 use EasyWeChat\Kernel\Contracts\EventHandlerInterface;
 
 /**
- * Class TextMessageHandler
- * @package App\Handler
+ * Class TextMessageHandler.
  */
 class TextMessageHandler implements EventHandlerInterface
 {
@@ -17,5 +17,4 @@ class TextMessageHandler implements EventHandlerInterface
     {
         return json_encode($payload);
     }
-
 }
