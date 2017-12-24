@@ -16,10 +16,11 @@ use Faker\Generator as Faker;
 $factory->define(App\Models\Member::class, function (Faker $faker) {
 
     return [
+        'inviter_id' => rand(1, 20),
         'unionid' => str_random(30),
         'openid' => str_random(30),
         'nickname' => $faker->name,
-        'subscribe' => rand(0,2),
-        'headimgurl' => $faker->imageUrl(100,100),
+        'subscribe' => rand(0, 2),
+        'headimgurl' => $faker->imageUrl(100, 100),
     ];
 });

@@ -93,7 +93,7 @@ class User extends Authenticatable
              data-trans-button-cancel="取消"
              data-trans-button-confirm="删除"
              data-trans-title="你确定要这么做吗?"
-             data-trans-text="用户删除后将不成恢复"
+             data-trans-text="用户删除后将不能恢复"
              class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="删除"></i></a> ';
     }
 }

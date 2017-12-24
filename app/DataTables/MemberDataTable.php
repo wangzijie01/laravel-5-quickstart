@@ -2,10 +2,10 @@
 
 namespace App\DataTables;
 
-use App\Models\User;
+use App\Models\Member;
 use Yajra\DataTables\Services\DataTable;
 
-class UsersDataTable extends DataTable
+class MemberDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -17,8 +17,14 @@ class UsersDataTable extends DataTable
     {
         return datatables($query)
             ->escapeColumns([])
-            ->addColumn('role', function ($model) {
-                return $model->role_name;
+            ->addColumn('memberAvatar', function ($model) {
+                return $model->member_avatar;
+            })
+            ->addColumn('inviterAvatar', function ($model) {
+                return $model->inviter_avatar;
+            })
+            ->addColumn('subscribe', function ($model) {
+                return $model->subscribe_label;
             })
             ->addColumn('action', function ($model) {
                 return $model->action_buttons;
@@ -28,10 +34,10 @@ class UsersDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\User $model
+     * @param \App\Models\Member $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(User $model)
+    public function query(Member $model)
     {
         return $model->newQuery()->select($this->getColumns());
     }
@@ -44,10 +50,10 @@ class UsersDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->columns($this->colums())
-                    ->minifiedAjax()
-                    ->addAction(['width' => '80px', 'title'=>'操作'])
-                    ->parameters($this->getBuilderParameters());
+            ->columns($this->colums())
+            ->minifiedAjax()
+            ->addAction(['width' => '80px', 'title' => '操作'])
+            ->parameters($this->getBuilderParameters());
     }
 
     /**
@@ -59,8 +65,10 @@ class UsersDataTable extends DataTable
     {
         return [
             'id',
-            'name',
-            'email',
+            'inviter_id',
+            'nickname',
+            'subscribe',
+            'headimgurl',
             'created_at',
             'updated_at',
         ];
@@ -73,11 +81,10 @@ class UsersDataTable extends DataTable
     {
         return [
             ['data' => 'id', 'name' => 'id', 'searchable' => false, 'title' => 'ID'],
-            ['data' => 'name', 'name' => 'name', 'orderable' => false, 'title' => '用户名'],
-            ['data' => 'email', 'name' => 'email', 'orderable' => false, 'title' => '邮箱'],
-            ['data' => 'role', 'name' => 'role', 'orderable' => false, 'searchable' => false, 'title' => '角色'],
-            ['data' => 'created_at', 'name' => 'created_at', 'searchable' => false, 'title' => '创建时间'],
-            ['data' => 'updated_at', 'name' => 'updated_at', 'searchable' => false, 'title' => '更新时间'],
+            ['data' => 'memberAvatar', 'name' => 'nickname', 'orderable' => false, 'title' => '昵称'],
+            ['data' => 'inviterAvatar', 'searchable' => false, 'orderable' => false, 'title' => '邀请人'],
+            ['data' => 'subscribe', 'searchable' => false, 'orderable' => false, 'title' => '是否关注'],
+            ['data' => 'created_at', 'searchable' => false, 'title' => '注册时间'],
         ];
     }
 
@@ -101,6 +108,6 @@ class UsersDataTable extends DataTable
      */
     protected function filename()
     {
-        return '用户列表_'.time();
+        return '会员列表_' . time();
     }
 }

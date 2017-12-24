@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
-use App\DataTables\UsersDataTable;
+use App\DataTables\UserDataTable;
 use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 use App\Http\Requests\User\StoreUserRequest;
@@ -26,10 +26,10 @@ class UserController extends Controller
     }
 
     /**
-     * @param UsersDataTable $dataTable
+     * @param UserDataTable $dataTable
      * @return mixed
      */
-    public function index(UsersDataTable $dataTable)
+    public function index(UserDataTable $dataTable)
     {
         return $dataTable->render('admin.user.index');
     }
@@ -111,7 +111,7 @@ class UserController extends Controller
         }
         flash('用户信息修改成功')->success()->important();
 
-        return redirect()->route('admin.user.index');
+        return redirect()->back();
     }
 
     /**
@@ -122,6 +122,6 @@ class UserController extends Controller
         $this->userRepository->delete($user->id);
         flash('用户删除成功')->success()->important();
 
-        return redirect()->route('admin.user.index');
+        return redirect()->back();
     }
 }

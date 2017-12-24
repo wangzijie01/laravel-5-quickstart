@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '系统后台',
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => 'SB',
 
     /*
     |--------------------------------------------------------------------------
@@ -85,7 +85,7 @@ return [
     |
     */
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
 
     'logout_url' => 'logout',
 
@@ -110,12 +110,6 @@ return [
     'menu' => [
         '主菜单',
         [
-            'text' => '系统主页',
-            'url'  => 'admin',
-            'icon' => 'dashboard',
-        ],
-
-        [
             'text'        => 'Pages',
             'url'         => 'admin/pages',
             'icon'        => 'file',
@@ -127,6 +121,11 @@ return [
             'text' => '用户管理',
             'url'  => 'admin/user',
             'icon' => 'user',
+        ],
+        [
+            'text' => '会员管理',
+            'url'  => 'admin/member',
+            'icon' => 'users',
         ],
         [
             'text'    => 'Multilevel',

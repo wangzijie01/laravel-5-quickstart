@@ -15,6 +15,7 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('inviter_id');  //邀请人
             $table->string('unionid');
             $table->string('openid');
             $table->string('nickname');
@@ -22,7 +23,7 @@ class CreateMembersTable extends Migration
             $table->string('headimgurl');
             $table->timestamps();
             $table->unique('unionid', 'openid');
-            $table->index(['unionid', 'openid']);
+            $table->index(['inviter_id', 'unionid', 'openid']);
         });
     }
 
