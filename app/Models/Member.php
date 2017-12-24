@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Member
- * @package App\Models
+ * Class Member.
  */
 class Member extends Model
 {
     /**
      * @var string
      */
-    protected $table = "members";
-
+    protected $table = 'members';
 
     /**
      * @var array
@@ -22,7 +20,7 @@ class Member extends Model
     protected $fillable = ['nickname'];
 
     /**
-     * 内关联
+     * 内关联.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function inviter()
@@ -45,9 +43,9 @@ class Member extends Model
         if ($this->subscribe == 2) {
             return '<label class="label label-warning">已取关</label>';
         }
-        return "";
-    }
 
+        return '';
+    }
 
     /**
      * 获取会员头像和昵称.
@@ -56,8 +54,9 @@ class Member extends Model
     public function getMemberAvatarAttribute()
     {
         $headimgurl = "<img src='{$this->headimgurl}' width='20' height='20'/>";
-        $nickname = "<a href='" . route('admin.member.index', ['member_id' => $this]) . "'>" . $this->nickname . "</a>";
-        return $headimgurl . "  " . $nickname;
+        $nickname = "<a href='".route('admin.member.index', ['member_id' => $this])."'>".$this->nickname.'</a>';
+
+        return $headimgurl.'  '.$nickname;
     }
 
     /**
@@ -70,8 +69,9 @@ class Member extends Model
             return "<label class='label label-success'>无<label>";
         }
         $headimgurl = "<img src='{$this->inviter->headimgurl}' width='20' height='20'/>";
-        $nickname = "<a href='" . route('admin.member.index', ['inviter_id' => $this->inviter]) . "'>" . $this->inviter->nickname . "</a>";
-        return $headimgurl . "  " . $nickname;
+        $nickname = "<a href='".route('admin.member.index', ['inviter_id' => $this->inviter])."'>".$this->inviter->nickname.'</a>';
+
+        return $headimgurl.'  '.$nickname;
     }
 
     /**
@@ -81,8 +81,8 @@ class Member extends Model
     public function getActionButtonsAttribute()
     {
         return
-            $this->getShowButtonAttribute() .
-            $this->getEditButtonAttribute() .
+            $this->getShowButtonAttribute().
+            $this->getEditButtonAttribute().
             $this->getDeleteButtonAttribute();
     }
 
@@ -92,7 +92,7 @@ class Member extends Model
      */
     protected function getShowButtonAttribute()
     {
-        return '<a href="' . route('admin.member.show', $this) . '" class="btn btn-xs btn-info"><i class="fa fa-search" data-toggle="tooltip" data-placement="top" title="查看详情"></i></a> ';
+        return '<a href="'.route('admin.member.show', $this).'" class="btn btn-xs btn-info"><i class="fa fa-search" data-toggle="tooltip" data-placement="top" title="查看详情"></i></a> ';
     }
 
     /**
@@ -101,7 +101,7 @@ class Member extends Model
      */
     protected function getEditButtonAttribute()
     {
-        return '<a href="' . route('admin.member.edit', $this) . '" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="编辑"></i></a> ';
+        return '<a href="'.route('admin.member.edit', $this).'" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="编辑"></i></a> ';
     }
 
     /**
@@ -110,7 +110,7 @@ class Member extends Model
      */
     protected function getDeleteButtonAttribute()
     {
-        return '<a href="' . route('admin.member.destroy', $this) . '"
+        return '<a href="'.route('admin.member.destroy', $this).'"
              data-method="delete"
              data-trans-button-cancel="取消"
              data-trans-button-confirm="删除"

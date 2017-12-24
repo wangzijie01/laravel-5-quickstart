@@ -14,7 +14,6 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(App\Models\Member::class, function (Faker $faker) {
-
     return [
         'inviter_id' => rand(1, 20),
         'unionid' => str_random(30),
