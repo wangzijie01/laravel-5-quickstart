@@ -83,7 +83,7 @@ class MemberDataTable extends DataTable
             ['data' => 'id', 'name' => 'id', 'searchable' => false, 'title' => 'ID'],
             ['data' => 'memberAvatar', 'name' => 'nickname', 'orderable' => false, 'title' => '昵称'],
             ['data' => 'inviterAvatar', 'searchable' => false, 'orderable' => false, 'title' => '邀请人'],
-            ['data' => 'subscribe', 'searchable' => false, 'orderable' => false, 'title' => '是否关注'],
+            ['data' => 'subscribe', 'searchable' => false, 'orderable' => false, 'title' => '公众号'],
             ['data' => 'created_at', 'searchable' => false, 'title' => '注册时间'],
         ];
     }
