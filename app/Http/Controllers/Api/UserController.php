@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use Dingo\Api\Routing\Helpers;
+use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 use App\Transformers\UserTransformer;
-use Dingo\Api\Routing\Helpers;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 /**
- * Class UserController
- * @package App\Http\Controllers\Api
+ * Class UserController.
  */
 class UserController extends Controller
 {
@@ -36,7 +34,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->userRepository->paginate(10,[
+        $users = $this->userRepository->paginate(10, [
             'id',
             'name',
             'email',

@@ -3,11 +3,9 @@
 namespace App\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use App\Repositories\GoodsRepository;
 
-class UserTransformer extends TransformerAbstract
+class UserTransformers extends TransformerAbstract
 {
-
     public function transform($transformer)
     {
         $transformer = $transformer->toArray();
@@ -16,6 +14,4 @@ class UserTransformer extends TransformerAbstract
 
         return $transformer;
     }
-
-
 }
