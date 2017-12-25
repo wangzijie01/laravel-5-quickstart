@@ -66,6 +66,7 @@ php artisan migrate && php artisan db:seed
 - [spatie/laravel-permission](https://github.com/spatie/laravel-permission)
 - [yajra/laravel-datatables](https://github.com/yajra/laravel-datatables)
 - [dingo/api](https://github.com/dingo/api)
+- [fxcosta/laravel-chartjs](https://github.com/fxcosta/laravel-chartjs)
 
 
 ## Recommend Packages
