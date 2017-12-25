@@ -46,8 +46,9 @@ class Member extends Model
 
         return '';
     }
+
     /**
-     * 性别
+     * 性别.
      * @return string
      */
     public function getSexLabelAttribute()
