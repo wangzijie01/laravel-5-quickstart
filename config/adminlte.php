@@ -128,19 +128,27 @@ return [
             'icon' => 'users',
         ],
         [
-            'text'    => 'Multilevel',
-            'icon'    => 'share',
+            'text'    => '微信配置',
+            'icon'    => 'weixin',
             'submenu' => [
                 [
-                    'text' => 'Level One',
+                    'text' => '关注回复',
                     'url'  => '#',
                 ],
                 [
-                    'text'    => 'Level One',
+                    'text' => '图文回复',
+                    'url'  => '#',
+                ],
+                [
+                    'text'    => '文字回复',
                     'url'     => '#',
                 ],
                 [
-                    'text' => 'Level One',
+                    'text' => '关注海报',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => '微信菜单',
                     'url'  => '#',
                 ],
             ],
