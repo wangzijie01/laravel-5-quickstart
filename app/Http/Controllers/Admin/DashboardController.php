@@ -35,24 +35,26 @@ class DashboardController extends Controller
                     "label" => "新关注",
                     'backgroundColor' => "rgba(38, 185, 154, 0.31)",
                     'borderColor' => "rgba(38, 185, 154, 0.7)",
-                    "pointBorderColor" => "rgba(38, 185, 154, 0.7)",
-                    "pointBackgroundColor" => "rgba(38, 185, 154, 0.7)",
-                    "pointHoverBackgroundColor" => "#fff",
-                    "pointHoverBorderColor" => "rgba(220,220,220,1)",
                     'data' => [65, 59, 80, 81, 56, 55, 40],
                 ],
                 [
                     "label" => "取关数",
                     'backgroundColor' => "rgba(252, 205, 86, .5)",
                     'borderColor' => "rgba(236, 180, 37, .9)",
-                    "pointBorderColor" => "rgba(236, 180, 37, .9)",
-                    "pointBackgroundColor" => "rgba(236, 180, 37, 0.7)",
-                    "pointHoverBackgroundColor" => "#fff",
-                    "pointHoverBorderColor" => "rgba(236, 180, 37,1)",
                     'data' => [12, 33, 44, 39, 49, 23, 70],
                 ]
             ])
-            ->options([]);
+            ->options([
+                'scales' => [
+                    'yAxes' => [
+                        [
+                            'ticks' => [
+                                'beginAtZero' => true
+                            ]
+                        ]
+                    ]
+                ]
+            ]);
         return $lineChart;
     }
 
