@@ -16,11 +16,12 @@ class DashboardController extends Controller
         $lineChart = $this->getLineChart();
         $barChart = $this->getBarChart();
         $pieChart = $this->getPieChart();
+
         return view('admin.dashboard.index', compact(['lineChart', 'barChart', 'pieChart']));
     }
 
     /**
-     * LineChart
+     * LineChart.
      * @return mixed
      */
     protected function getLineChart()
@@ -32,34 +33,35 @@ class DashboardController extends Controller
             ->labels(['January', 'February', 'March', 'April', 'May', 'June', 'July'])
             ->datasets([
                 [
-                    "label" => "新关注",
-                    'backgroundColor' => "rgba(38, 185, 154, 0.31)",
-                    'borderColor' => "rgba(38, 185, 154, 0.7)",
+                    'label' => '新关注',
+                    'backgroundColor' => 'rgba(38, 185, 154, 0.31)',
+                    'borderColor' => 'rgba(38, 185, 154, 0.7)',
                     'data' => [65, 59, 80, 81, 56, 55, 40],
                 ],
                 [
-                    "label" => "取关数",
-                    'backgroundColor' => "rgba(252, 205, 86, .5)",
-                    'borderColor' => "rgba(236, 180, 37, .9)",
+                    'label' => '取关数',
+                    'backgroundColor' => 'rgba(252, 205, 86, .5)',
+                    'borderColor' => 'rgba(236, 180, 37, .9)',
                     'data' => [12, 33, 44, 39, 49, 23, 70],
-                ]
+                ],
             ])
             ->options([
                 'scales' => [
                     'yAxes' => [
                         [
                             'ticks' => [
-                                'beginAtZero' => true
-                            ]
-                        ]
-                    ]
-                ]
+                                'beginAtZero' => true,
+                            ],
+                        ],
+                    ],
+                ],
             ]);
+
         return $lineChart;
     }
 
     /**
-     * BarChart
+     * BarChart.
      * @return mixed
      */
     protected function getBarChart()
@@ -71,13 +73,13 @@ class DashboardController extends Controller
             ->labels(['January', 'February', 'March', 'April', 'May', 'June', 'July'])
             ->datasets([
                 [
-                    "label" => "订单",
-                    "backgroundColor" => ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"],
-                    "borderColor" => ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)", "rgb(201, 203, 207)"],
-                    "borderWidth" => 1,
-                    "fill" => false,
-                    "data" => [65, 59, 80, 81, 56, 55, 45],
-                ]
+                    'label' => '订单',
+                    'backgroundColor' => ['rgba(255, 99, 132, 0.2)', 'rgba(255, 159, 64, 0.2)', 'rgba(255, 205, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(201, 203, 207, 0.2)'],
+                    'borderColor' => ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)', 'rgb(201, 203, 207)'],
+                    'borderWidth' => 1,
+                    'fill' => false,
+                    'data' => [65, 59, 80, 81, 56, 55, 45],
+                ],
 
             ])
             ->options([
@@ -85,17 +87,18 @@ class DashboardController extends Controller
                     'yAxes' => [
                         [
                             'ticks' => [
-                                'beginAtZero' => true
-                            ]
-                        ]
-                    ]
-                ]
+                                'beginAtZero' => true,
+                            ],
+                        ],
+                    ],
+                ],
             ]);
+
         return $barChart;
     }
 
     /**
-     * PieChart
+     * PieChart.
      * @return mixed
      */
     protected function getPieChart()
@@ -109,10 +112,11 @@ class DashboardController extends Controller
                 [
                     'backgroundColor' => ['#FF6384', '#36A2EB', '#fCCD56'],
                     'hoverBackgroundColor' => ['#FF6384', '#36A2EB', '#fCCD56'],
-                    'data' => [69, 59, 40]
-                ]
+                    'data' => [69, 59, 40],
+                ],
             ])
             ->options([]);
+
         return $pieChart;
     }
 }
