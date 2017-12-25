@@ -26,6 +26,9 @@ class MemberDataTable extends DataTable
             ->addColumn('subscribe', function ($model) {
                 return $model->subscribe_label;
             })
+            ->addColumn('sex', function ($model) {
+                return $model->sex_label;
+            })
             ->addColumn('action', function ($model) {
                 return $model->action_buttons;
             });
@@ -68,6 +71,9 @@ class MemberDataTable extends DataTable
             'inviter_id',
             'nickname',
             'subscribe',
+            'sex',
+            'credit1',
+            'credit2',
             'headimgurl',
             'created_at',
             'updated_at',
@@ -83,6 +89,9 @@ class MemberDataTable extends DataTable
             ['data' => 'id', 'name' => 'id', 'searchable' => false, 'title' => 'ID'],
             ['data' => 'memberAvatar', 'name' => 'nickname', 'orderable' => false, 'title' => '昵称'],
             ['data' => 'inviterAvatar', 'searchable' => false, 'orderable' => false, 'title' => '邀请人'],
+            ['data' => 'sex', 'searchable' => false, 'orderable' => false, 'title' => '性别'],
+            ['data' => 'credit1', 'searchable' => false, 'orderable' => false, 'title' => '积分'],
+            ['data' => 'credit2', 'searchable' => false, 'orderable' => false, 'title' => '余额'],
             ['data' => 'subscribe', 'searchable' => false, 'orderable' => false, 'title' => '公众号'],
             ['data' => 'created_at', 'searchable' => false, 'title' => '注册时间'],
         ];

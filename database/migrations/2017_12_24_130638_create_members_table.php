@@ -20,6 +20,9 @@ class CreateMembersTable extends Migration
             $table->string('openid');
             $table->string('nickname');
             $table->tinyInteger('subscribe');  //0未关注 1已关注 2已取关
+            $table->tinyInteger('sex');  //0未知 1男 2女
+            $table->integer('credit1'); //积分
+            $table->decimal('credit2'); //余额
             $table->string('headimgurl');
             $table->timestamps();
             $table->unique('unionid', 'openid');

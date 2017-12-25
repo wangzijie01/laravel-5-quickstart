@@ -46,6 +46,24 @@ class Member extends Model
 
         return '';
     }
+    /**
+     * 性别
+     * @return string
+     */
+    public function getSexLabelAttribute()
+    {
+        if ($this->subscribe == 0) {
+            return '<label class="label label-warning">未知</label>';
+        }
+        if ($this->subscribe == 1) {
+            return '<label class="label label-primary">男</label>';
+        }
+        if ($this->subscribe == 2) {
+            return '<label class="label label-success">女</label>';
+        }
+
+        return '';
+    }
 
     /**
      * 获取会员头像和昵称.

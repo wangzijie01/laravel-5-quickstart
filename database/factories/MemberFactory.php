@@ -20,6 +20,9 @@ $factory->define(App\Models\Member::class, function (Faker $faker) {
         'openid' => str_random(30),
         'nickname' => $faker->name,
         'subscribe' => rand(0, 2),
+        'sex' => rand(0, 2),
+        'credit1' => rand(0, 1000),
+        'credit2' => rand(0, 1000),
         'headimgurl' => $faker->imageUrl(100, 100),
     ];
 });
