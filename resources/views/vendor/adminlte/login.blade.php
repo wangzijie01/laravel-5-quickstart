@@ -1,8 +1,7 @@
 @extends('adminlte::master')
 
 @section('adminlte_css')
-    <link rel="stylesheet" href="{{ asset('vendor/adminlte/plugins/iCheck/square/blue.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/adminlte/css/auth.css') }}">
+    <link href="https://cdn.bootcss.com/iCheck/1.0.2/skins/flat/blue.css" rel="stylesheet">
     @yield('css')
 @stop
 
@@ -21,8 +20,7 @@
                 {!! csrf_field() !!}
 
                 <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
-                    <input type="email" name="email" class="form-control" value="{{ old('email') }}"
-                           placeholder="{{ trans('adminlte::adminlte.email') }}">
+                    <input type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Email">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     @if ($errors->has('email'))
                         <span class="help-block">
@@ -31,8 +29,7 @@
                     @endif
                 </div>
                 <div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
-                    <input type="password" name="password" class="form-control"
-                           placeholder="{{ trans('adminlte::adminlte.password') }}">
+                    <input type="password" name="password" class="form-control" placeholder="Password">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     @if ($errors->has('password'))
                         <span class="help-block">
@@ -50,20 +47,15 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-xs-4">
-                        <button type="submit"
-                                class="btn btn-primary btn-block btn-flat">登陆</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">登陆</button>
                     </div>
                     <!-- /.col -->
                 </div>
             </form>
             <div class="auth-links" style="padding-bottom: 10px;">
-                <a href="{{ url(config('adminlte.password_reset_url', 'password/reset')) }}"
-                   class="text-center pull-left"
-                >忘记密码</a>
+                <a href="{{ url(config('adminlte.password_reset_url', 'password/reset')) }}" class="text-center pull-left">忘记密码</a>
                 @if (config('adminlte.register_url', 'register'))
-                    <a href="{{ url(config('adminlte.register_url', 'register')) }}"
-                       class="text-center pull-right"
-                    >注册账号</a>
+                    <a href="{{ url(config('adminlte.register_url', 'register')) }}" class="text-center pull-right">注册账号</a>
                 @endif
             </div>
         </div>
@@ -72,7 +64,7 @@
 @stop
 
 @section('adminlte_js')
-    <script src="{{ asset('vendor/adminlte/plugins/iCheck/icheck.min.js') }}"></script>
+    <script src="https://cdn.bootcss.com/iCheck/1.0.2/icheck.min.js"></script>
     <script>
         $(function () {
             $('input').iCheck({
