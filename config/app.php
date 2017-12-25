@@ -180,7 +180,7 @@ return [
         /*
          * Third Party Packeages
          */
-        Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class
+        Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class,
 
     ],
 
