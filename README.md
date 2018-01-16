@@ -1,4 +1,4 @@
-<h2 align="center">Laravel 5 Quickstart<h5>
+<h2 align="center">Laravel 5 QuickStart<h5>
 <p align="center">
 <a href="https://styleci.io/repos/109128127"><img src="https://styleci.io/repos/109128127/shield?branch=master" alt="StyleCI"></a>
 <a href="https://travis-ci.org/niugengyun/laravel-5-quickstart"><img src="https://travis-ci.org/niugengyun/laravel-5-quickstart.svg?branch=master" alt="Build Status"></a>
