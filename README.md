@@ -82,7 +82,7 @@ php artisan migrate && php artisan db:seed
 
 ## Connect Me
 
-WX: hn-hack
+WX：hn-hack
 
 QQ：515343908
 
