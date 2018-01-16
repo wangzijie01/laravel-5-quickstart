@@ -80,6 +80,10 @@ php artisan migrate && php artisan db:seed
 - [tymon/jwt-auth](https://github.com/tymondesigns/jwt-auth)
 
 
+## Connect Me
+
+wx: hn-hack
+
 ## License
 
 MIT
