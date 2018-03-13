@@ -1,8 +1,7 @@
-<h2 align="center">Laravel 5 Quickstart<h5>
+<h2 align="center">Laravel 5 QuickStart<h5>
 <p align="center">
 <a href="https://styleci.io/repos/109128127"><img src="https://styleci.io/repos/109128127/shield?branch=master" alt="StyleCI"></a>
 <a href="https://travis-ci.org/niugengyun/laravel-5-quickstart"><img src="https://travis-ci.org/niugengyun/laravel-5-quickstart.svg?branch=master" alt="Build Status"></a>
-<a href='https://coveralls.io/github/niugengyun/laravel-5-quickstart?branch=master'><img src='https://coveralls.io/repos/github/niugengyun/laravel-5-quickstart/badge.svg?branch=master' alt='Coverage Status' /></a>
 <a href="https://packagist.org/packages/niugengyun/laravel-5-quickstart"><img src="https://poser.pugx.org/niugengyun/laravel-5-quickstart/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/niugengyun/laravel-5-quickstart"><img src="https://poser.pugx.org/niugengyun/laravel-5-quickstart/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/niugengyun/laravel-5-quickstart"><img src="https://poser.pugx.org/niugengyun/laravel-5-quickstart/license.svg" alt="License"></a>
@@ -80,6 +79,12 @@ php artisan migrate && php artisan db:seed
 - [vinkla/hashids](https://github.com/vinkla/laravel-hashids)
 - [tymon/jwt-auth](https://github.com/tymondesigns/jwt-auth)
 
+
+## Connect Me
+
+WX：hn-hack
+
+QQ：515343908
 
 ## License
 
