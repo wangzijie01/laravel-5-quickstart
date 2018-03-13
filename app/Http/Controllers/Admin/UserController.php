@@ -119,6 +119,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+
         $this->userRepository->delete($user->id);
         flash('用户删除成功')->success()->important();
 

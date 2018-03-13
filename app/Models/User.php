@@ -35,6 +35,7 @@ class User extends Authenticatable
     ];
 
     /**
+     * https://laravel-china.org/docs/laravel/5.5/eloquent-mutators
      * 获取当前用户所属角色.
      * @return string
      */
