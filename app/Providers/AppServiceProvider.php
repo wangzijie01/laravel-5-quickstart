@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
         * setLocale to use Carbon source locales. Enables diffForHumans() localized
         */
         Carbon::setLocale(config('app.locale'));
+        Schema::defaultStringLength(191);
     }
 
     /**
