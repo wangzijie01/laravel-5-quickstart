@@ -32,14 +32,11 @@ class MemberController extends Controller
      */
     public function index(MemberDataTable $dataTable)
     {
-        //https://laravel-china.org/docs/laravel/5.5/eloquent#4330c1
-        $member = $this->memberRepository->find(1);
         if (request('member_id') || request('inviter_id')) {
             return $dataTable
                 ->addScope(new MemberScope())
                 ->render('admin.member.index');
         }
-
         return $dataTable->render('admin.member.index');
     }
 

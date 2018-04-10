@@ -2,33 +2,29 @@
 <p align="center">
 <a href="https://styleci.io/repos/109128127"><img src="https://styleci.io/repos/109128127/shield?branch=master" alt="StyleCI"></a>
 <a href="https://travis-ci.org/niugengyun/laravel-5-quickstart"><img src="https://travis-ci.org/niugengyun/laravel-5-quickstart.svg?branch=master" alt="Build Status"></a>
-<a href="https://packagist.org/packages/niugengyun/laravel-5-quickstart"><img src="https://poser.pugx.org/niugengyun/laravel-5-quickstart/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/niugengyun/laravel-5-quickstart"><img src="https://poser.pugx.org/niugengyun/laravel-5-quickstart/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/niugengyun/laravel-5-quickstart"><img src="https://poser.pugx.org/niugengyun/laravel-5-quickstart/license.svg" alt="License"></a>
 </p>
 
 <p align="center">
-    <b>希望能帮助你少写点代码</b>
+    <b>快读搭建你的laravel项目</b>
 </p>
 
-## Requirement
+## 环境要求
 
-1. PHP >= 7.0
+1. PHP >= 7.1.3
 2. **[Composer](https://getcomposer.org/)**
 3. PHP openssl 扩展
 4. PHP fileinfo 扩展
 
-## Introduction
+## 介绍
 
-1. 项目基于laravel5.5开发，目的为了快速开发一个新项目。
+1. 项目基于laravel5.6开发，目的为了快速开发一个新项目。
 
 2. 内置了三大模块：微信开发、Api接口、权限管理。
 
 3. 其他功能没有集成，系统后台采用的AdminLTE后台模板。
 
 
-
-## Installation
+## 安装
 
 1.**克隆项目**
 
@@ -50,11 +46,19 @@ composer update && npm install && npm run dev
 php artisan migrate && php artisan db:seed
 ```
 
-## Documentation
+## 开发规范
 
-待完善
+1. 数据库操作采用依赖注入
 
-## Used Packages
+2. 尽可能的避免在控制器直接操作数据库
+
+3. 创建Request验证表单
+
+4. 所有控制器方法注释一定要规范
+
+5. 接口返回数据一定要规范
+
+## 用到的包
 
 - [InfyOmLabs/adminlte-templates](https://github.com/InfyOmLabs/adminlte-templates)
 - [laravelcollective/html](https://github.com/LaravelCollective/html)
@@ -68,7 +72,7 @@ php artisan migrate && php artisan db:seed
 - [fxcosta/laravel-chartjs](https://github.com/fxcosta/laravel-chartjs)
 
 
-## Recommend Packages
+## 推荐包
 
 - [intervention/image](https://github.com/Intervention/image)
 - [ixudra/curl](https://github.com/ixudra/curl)
@@ -79,13 +83,3 @@ php artisan migrate && php artisan db:seed
 - [vinkla/hashids](https://github.com/vinkla/laravel-hashids)
 - [tymon/jwt-auth](https://github.com/tymondesigns/jwt-auth)
 
-
-## Connect Me
-
-WX：hn-hack
-
-QQ：515343908
-
-## License
-
-MIT

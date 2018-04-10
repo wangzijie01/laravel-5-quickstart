@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
-use Dingo\Api\Routing\Helpers;
+use App\Http\Resources\UserResource;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
-use App\Transformers\UserTransformer;
 
 /**
  * Class UserController.
  */
 class UserController extends Controller
 {
-    use Helpers;
 
     /**
      * @var UserRepository
@@ -29,20 +28,13 @@ class UserController extends Controller
     }
 
     /**
-     * 返回所有用户 每页10条
-     * @return \Dingo\Api\Http\Response
+     * 返回所有用户
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
-        $users = $this->userRepository->paginate(10, [
-            'id',
-            'name',
-            'email',
-            'remember_token',
-            'created_at',
-            'updated_at',
-        ]);
+        $users = $this->userRepository->paginate();
 
-        return $this->response->paginator($users, new UserTransformer());
+        return UserResource::collection($users);
     }
 }

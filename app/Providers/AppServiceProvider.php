@@ -21,6 +21,12 @@ class AppServiceProvider extends ServiceProvider
         */
         Carbon::setLocale(config('app.locale'));
         Schema::defaultStringLength(191);
+        //laravel 5.6变化
+        //使用bootstrap3生成分页
+        //Paginator::useBootstrapThree();
+        //如果你想保持以前防止重复编码的行为
+        //Blade::withoutDoubleEncoding();
+
     }
 
     /**

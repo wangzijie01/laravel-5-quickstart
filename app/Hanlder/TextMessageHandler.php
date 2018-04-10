@@ -11,9 +11,9 @@ class TextMessageHandler implements EventHandlerInterface
 {
     /**
      * @param array $payload
-     * @return bool|string|void
+     * @return string
      */
-    public function handle(array $payload = [])
+    public function handle($payload = [])
     {
         return json_encode($payload);
     }

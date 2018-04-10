@@ -11,6 +11,14 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('role_has_permissions')->truncate();
+        DB::table('user_has_permissions')->truncate();
+        DB::table('user_has_roles')->truncate();
+        DB::table('roles')->truncate();
+        DB::table('permissions')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
         //添加角色
         $role = \Spatie\Permission\Models\Role::create(['name' => 'administrator']);
         //添加权限

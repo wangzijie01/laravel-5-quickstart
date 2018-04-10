@@ -13,7 +13,7 @@ class EventMessageHandler implements EventHandlerInterface
      * @param array $payload
      * @return string
      */
-    public function handle(array $payload = [])
+    public function handle($payload = [])
     {
         $event = $payload['Event'];
         $eventKey = $payload['EventKey'];
@@ -30,9 +30,6 @@ class EventMessageHandler implements EventHandlerInterface
                 return '点击的公众号菜单';
                 break;
             case 'SCAN':
-                //用户已关注公众号,并且重新扫描了公众号二维码
-                $eventKey = 'qrscene_'.$eventKey;
-
                 return '用户已关注公众号,并且重新扫描了公众号二维码';
                 break;
             default:

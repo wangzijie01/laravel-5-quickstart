@@ -13,12 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 //
-//Route::middleware('auth:api')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
+//Route::middleware('auth:api', 'throttle:rate_limit,1')
+//    ->namespace('Api')
+//    ->group(function () {
+//        Route::get('/user', 'UserController@index');
+//    });
 
-$api = app('Dingo\Api\Routing\Router');
 
-$api->version('v1', ['namespace'=>'App\Http\Controllers\Api'], function ($api) {
-    $api->get('user', 'UserController@index');
-});
+Route::namespace('Api')
+    ->group(function () {
+        Route::get('/user', 'UserController@index');
+    });

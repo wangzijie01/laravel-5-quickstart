@@ -55,8 +55,10 @@ class UserController extends Controller
         ];
 
         $user = $this->userRepository->create($data);
+
         //用户创建失败
-        if (! $user) {
+        if (!$user) {
+
             flash('用户创建失败')->error()->important();
 
             return;
@@ -65,6 +67,7 @@ class UserController extends Controller
         if (request('is_administrator') == 1) {
             $user->assignRole('administrator');
         }
+
         flash('用户创建成功')->success()->important();
 
         return redirect()->route('admin.user.index');
@@ -102,7 +105,7 @@ class UserController extends Controller
             $this->userRepository->update(bcrypt($password), $user->id);
         }
         //如果设置用户为管理员
-        if (request('is_administrator') == 1 && ! $user->hasRole('administrator')) {
+        if (request('is_administrator') == 1 && !$user->hasRole('administrator')) {
             $user->assignRole('administrator');
         }
         //非管理员
@@ -119,8 +122,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-
         $this->userRepository->delete($user->id);
+
         flash('用户删除成功')->success()->important();
 
         return redirect()->back();

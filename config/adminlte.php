@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Admin</b>',
 
-    'logo_mini' => 'SB',
+    'logo_mini' => 'HT',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,14 +108,6 @@ return [
     */
 
     'menu' => [
-        '主菜单',
-        [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
         '系统',
         [
             'text' => '用户管理',
@@ -126,32 +118,6 @@ return [
             'text' => '会员管理',
             'url'  => 'admin/member',
             'icon' => 'users',
-        ],
-        [
-            'text'    => '微信配置',
-            'icon'    => 'weixin',
-            'submenu' => [
-                [
-                    'text' => '关注回复',
-                    'url'  => '#',
-                ],
-                [
-                    'text' => '图文回复',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => '文字回复',
-                    'url'     => '#',
-                ],
-                [
-                    'text' => '关注海报',
-                    'url'  => '#',
-                ],
-                [
-                    'text' => '微信菜单',
-                    'url'  => '#',
-                ],
-            ],
         ],
         '标签',
         [
