@@ -26,7 +26,6 @@ class AppServiceProvider extends ServiceProvider
         //Paginator::useBootstrapThree();
         //如果你想保持以前防止重复编码的行为
         //Blade::withoutDoubleEncoding();
-
     }
 
     /**

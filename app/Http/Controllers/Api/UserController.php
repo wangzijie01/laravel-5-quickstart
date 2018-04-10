@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Resources\UserResource;
-use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use App\Repositories\UserRepository;
 
 /**
@@ -12,7 +11,6 @@ use App\Repositories\UserRepository;
  */
 class UserController extends Controller
 {
-
     /**
      * @var UserRepository
      */
@@ -28,7 +26,7 @@ class UserController extends Controller
     }
 
     /**
-     * 返回所有用户
+     * 返回所有用户.
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
