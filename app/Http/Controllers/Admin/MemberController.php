@@ -37,6 +37,7 @@ class MemberController extends Controller
                 ->addScope(new MemberScope())
                 ->render('admin.member.index');
         }
+
         return $dataTable->render('admin.member.index');
     }
 

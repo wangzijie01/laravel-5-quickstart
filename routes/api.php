@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +17,6 @@ use Illuminate\Http\Request;
 //    ->group(function () {
 //        Route::get('/user', 'UserController@index');
 //    });
-
 
 Route::namespace('Api')
     ->group(function () {
