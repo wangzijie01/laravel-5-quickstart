@@ -64,6 +64,8 @@ class MemberController extends Controller
     /**
      * @param UpdateMemberRequest $request
      * @param Member $member
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
     public function update(UpdateMemberRequest $request, Member $member)
     {
@@ -80,6 +82,7 @@ class MemberController extends Controller
 
     /**
      * @param Member $member
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Member $member)
     {

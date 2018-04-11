@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
+use function flash;
 
 class UserController extends Controller
 {
@@ -44,7 +45,8 @@ class UserController extends Controller
 
     /**
      * @param StoreUserRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\RedirectResponse|void
+     * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
     public function store(StoreUserRequest $request)
     {
@@ -57,7 +59,7 @@ class UserController extends Controller
         $user = $this->userRepository->create($data);
 
         //用户创建失败
-        if (! $user) {
+        if (!$user) {
             flash('用户创建失败')->error()->important();
 
             return;
@@ -95,6 +97,8 @@ class UserController extends Controller
     /**
      * @param UpdateUserRequest $request
      * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
     public function update(UpdateUserRequest $request, User $user)
     {
@@ -104,7 +108,7 @@ class UserController extends Controller
             $this->userRepository->update(bcrypt($password), $user->id);
         }
         //如果设置用户为管理员
-        if (request('is_administrator') == 1 && ! $user->hasRole('administrator')) {
+        if (request('is_administrator') == 1 && !$user->hasRole('administrator')) {
             $user->assignRole('administrator');
         }
         //非管理员
@@ -118,6 +122,7 @@ class UserController extends Controller
 
     /**
      * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(User $user)
     {

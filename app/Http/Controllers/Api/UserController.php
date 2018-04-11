@@ -26,7 +26,6 @@ class UserController extends Controller
     }
 
     /**
-     * 返回所有用户.
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
