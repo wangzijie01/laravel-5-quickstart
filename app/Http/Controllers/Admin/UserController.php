@@ -7,8 +7,8 @@ use App\Models\User;
 use App\DataTables\UserDataTable;
 use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
-use App\Http\Requests\User\StoreArticleRequest;
 use App\Http\Requests\User\UpdateUserRequest;
+use App\Http\Requests\User\StoreArticleRequest;
 
 class UserController extends Controller
 {
