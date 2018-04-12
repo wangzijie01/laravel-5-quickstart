@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use function auth;
+use function flash;
+use function request;
 use App\Models\Article;
 use App\DataTables\ArticleDataTable;
 use App\Http\Controllers\Controller;
 use App\Repositories\ArticleRepository;
 use App\Http\Requests\Article\StoreArticleRequest;
 use App\Http\Requests\Article\UpdateArticleRequest;
-use function auth;
-use function dd;
-use function flash;
-use function request;
 
 class ArticleController extends Controller
 {
@@ -103,7 +102,6 @@ class ArticleController extends Controller
         ];
 
         $this->articleRepository->update($data, $article->id);
-
 
         flash('文章信息修改成功')->success()->important();
 

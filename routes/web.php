@@ -46,6 +46,6 @@ Route::namespace('Admin')
             'create', 'store',
         ]]);
         Route::resource('article', 'ArticleController', ['except' => [
-            'show'
+            'show',
         ]]);
     });
