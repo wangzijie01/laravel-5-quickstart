@@ -6,7 +6,7 @@ use App\Models\User;
 use App\DataTables\UserDataTable;
 use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
-use App\Http\Requests\User\StoreUserRequest;
+use App\Http\Requests\User\StoreArticleRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use function flash;
 
@@ -44,11 +44,11 @@ class UserController extends Controller
     }
 
     /**
-     * @param StoreUserRequest $request
+     * @param StoreArticleRequest $request
      * @return \Illuminate\Http\RedirectResponse|void
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(StoreUserRequest $request)
+    public function store(StoreArticleRequest $request)
     {
         $data = [
             'name' => request('name'),

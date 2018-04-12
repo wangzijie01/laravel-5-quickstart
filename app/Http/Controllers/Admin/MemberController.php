@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\DataTables\Scopes\MemberScope;
 use App\Repositories\MemberRepository;
 use Illuminate\Support\Facades\Request;
-use App\Http\Requests\Member\UpdateMemberRequest;
+use App\Http\Requests\Member\UpdateArticleRequest;
 
 class MemberController extends Controller
 {
@@ -62,12 +62,12 @@ class MemberController extends Controller
     }
 
     /**
-     * @param UpdateMemberRequest $request
+     * @param UpdateArticleRequest $request
      * @param Member $member
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(UpdateMemberRequest $request, Member $member)
+    public function update(UpdateArticleRequest $request, Member $member)
     {
         $data = [
             'nickname' => request('nickname'),

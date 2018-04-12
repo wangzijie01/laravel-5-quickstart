@@ -40,8 +40,12 @@ Route::namespace('Admin')
     ->prefix('admin')
     ->group(function () {
         Route::get('/', 'DashboardController@index')->name('dashboard');
+        Route::any('upload', 'UploadController@index')->name('upload');
         Route::resource('user', 'UserController');
         Route::resource('member', 'MemberController', ['except' => [
             'create', 'store',
+        ]]);
+        Route::resource('article', 'ArticleController', ['except' => [
+            'show'
         ]]);
     });

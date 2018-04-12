@@ -119,6 +119,11 @@ return [
             'url'  => 'admin/member',
             'icon' => 'users',
         ],
+        [
+            'text' => '文章管理',
+            'url'  => 'admin/article',
+            'icon' => 'file',
+        ],
         '标签',
         [
             'text'       => 'Important',
