@@ -20,7 +20,7 @@ class CreateArticlesTable extends Migration
             $table->string('thumb')->nullable();
             $table->text('content')->nullable();
             $table->timestamps();
-            $table->primary(['user_id']);
+            $table->index(['user_id']);
         });
     }
 
