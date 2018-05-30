@@ -16,6 +16,4 @@ class ArticleRepository extends BaseRepository
     {
         return Article::class;
     }
-
-
 }

@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
+use function dd;
+use function auth;
+use function flash;
+use function request;
 use App\Models\Setting;
+use Vinkla\Hashids\Facades\Hashids;
 use App\Http\Controllers\Controller;
 use App\Repositories\SettingRepository;
 use App\Http\Requests\Setting\UpdateSettingRequest;
-use function auth;
-use function dd;
-use Exception;
-use function flash;
-use function request;
-use Vinkla\Hashids\Facades\Hashids;
 
 class SettingController extends Controller
 {
@@ -30,14 +30,14 @@ class SettingController extends Controller
     }
 
     /**
-     * 设置
+     * 设置.
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
         //当前标签
         $tab = request('tab');
-        if (!$tab) {
+        if (! $tab) {
             $tab = 1;
         }
         //设置信息  不存在则创建
@@ -51,7 +51,6 @@ class SettingController extends Controller
             ->with('tab', $tab)
             ->with('setting', $setting);
     }
-
 
     /**
      * @param UpdateSettingRequest $request
@@ -83,7 +82,7 @@ class SettingController extends Controller
     }
 
     /**
-     * 设置小程序信息
+     * 设置小程序信息.
      */
     private function setMiniProgramData()
     {
@@ -98,7 +97,6 @@ class SettingController extends Controller
 
         $insert['mini_program'] = json_encode($miniProgram);
 
-
         try {
             $this->settingRepository->updateOrCreate([
                 'user_id' => auth()->user()->id,
@@ -109,7 +107,7 @@ class SettingController extends Controller
     }
 
     /**
-     * 保存公众号信息
+     * 保存公众号信息.
      */
     private function setWechatData()
     {
@@ -131,7 +129,7 @@ class SettingController extends Controller
     }
 
     /**
-     * 设置支付信息
+     * 设置支付信息.
      */
     private function setPaymentData()
     {
@@ -141,8 +139,8 @@ class SettingController extends Controller
             'app_id' => isset($data['payment']['app_id']) ? $data['payment']['app_id'] : '',
             'mch_id' => isset($data['payment']['mch_id']) ? $data['payment']['mch_id'] : '',
             'key' => isset($data['payment']['key']) ? $data['payment']['key'] : '',
-            'cert_path' => storage_path('apiclient/' . Hashids::encode(session('uuid')) . '/apiclient_cert.pem'),
-            'key_path' => storage_path('apiclient/' . Hashids::encode(session('uuid')) . '/apiclient_key.pem'),
+            'cert_path' => storage_path('apiclient/'.Hashids::encode(session('uuid')).'/apiclient_cert.pem'),
+            'key_path' => storage_path('apiclient/'.Hashids::encode(session('uuid')).'/apiclient_key.pem'),
         ];
 
         $insert['payment'] = json_encode($payment);
@@ -157,7 +155,7 @@ class SettingController extends Controller
     }
 
     /**
-     * 保存其他信息
+     * 保存其他信息.
      */
     private function setOtherData()
     {
@@ -169,7 +167,6 @@ class SettingController extends Controller
         ];
 
         $insert['other'] = json_encode($other);
-
 
         try {
             $this->settingRepository->updateOrCreate([

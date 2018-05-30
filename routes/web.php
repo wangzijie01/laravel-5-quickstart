@@ -11,10 +11,9 @@
 */
 
 /**
- * 前台
+ * 前台.
  */
 Route::get('/', 'HomeController@index')->name('home');
-
 
 /*
  * 登录注册
@@ -28,11 +27,10 @@ Route::namespace('Wechat')
     ->as('wechat.')
     ->prefix('wechat')
     ->group(function () {
-        include_route_files(__DIR__ . '/wechat/');
+        include_route_files(__DIR__.'/wechat/');
     });
 
-
-/**
+/*
  * 后台
  */
 Route::prefix('admin')
@@ -40,5 +38,5 @@ Route::prefix('admin')
     ->middleware(['role:administrator'])
     ->as('admin.')
     ->group(function () {
-        include_route_files(__DIR__ . '/admin/');
+        include_route_files(__DIR__.'/admin/');
     });

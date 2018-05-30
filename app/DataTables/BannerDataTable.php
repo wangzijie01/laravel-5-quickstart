@@ -99,6 +99,6 @@ class BannerDataTable extends DataTable
      */
     protected function filename()
     {
-        return '店招列表_' . time();
+        return '店招列表_'.time();
     }
 }

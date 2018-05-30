@@ -59,7 +59,7 @@ class UserController extends Controller
         $user = $this->userRepository->create($data);
 
         //用户创建失败
-        if (!$user) {
+        if (! $user) {
             flash('用户创建失败')->error()->important();
 
             return;
@@ -106,11 +106,11 @@ class UserController extends Controller
         //设置了新密码
         if ($password) {
             $this->userRepository->update([
-                'password' => bcrypt($password)
+                'password' => bcrypt($password),
             ], $user->id);
         }
         //如果设置用户为管理员
-        if (request('is_administrator') == 1 && !$user->hasRole('administrator')) {
+        if (request('is_administrator') == 1 && ! $user->hasRole('administrator')) {
             $user->assignRole('administrator');
         }
         //非管理员

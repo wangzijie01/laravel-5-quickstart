@@ -17,8 +17,8 @@ class CreateBannersTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('image')->nullable();
-            $table->integer('sort')->default(1);;
-            $table->tinyInteger('status')->default(1);;
+            $table->integer('sort')->default(1);
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
             $table->index(['user_id']);
         });

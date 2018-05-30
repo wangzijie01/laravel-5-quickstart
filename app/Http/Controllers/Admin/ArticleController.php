@@ -4,13 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use function auth;
 use function flash;
-use function request;
 use App\Models\Article;
 use App\DataTables\ArticleDataTable;
 use App\Http\Controllers\Controller;
 use App\Repositories\ArticleRepository;
-use App\Http\Requests\Article\StoreArticleRequest;
-use App\Http\Requests\Article\UpdateArticleRequest;
 
 class ArticleController extends Controller
 {

@@ -20,8 +20,6 @@ class Member extends Model implements JWTSubject
      */
     protected $fillable = ['nickname'];
 
-
-
     // Rest omitted for brevity
 
     /**
@@ -43,7 +41,6 @@ class Member extends Model implements JWTSubject
     {
         return [];
     }
-
 
     /**
      * 内关联.

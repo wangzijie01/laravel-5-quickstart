@@ -16,6 +16,4 @@ class SettingRepository extends BaseRepository
     {
         return Setting::class;
     }
-
-
 }
