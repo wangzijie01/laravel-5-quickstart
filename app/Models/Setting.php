@@ -18,5 +18,4 @@ class Setting extends Model
      * @var array
      */
     protected $guarded = [];
-
 }

@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
+use function response;
 use EasyWeChat\Factory;
 use Illuminate\Http\Request;
-use App\Repositories\UserRepository;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\MemberRepository;
 use App\Repositories\SettingRepository;
-use function response;
 
 /**
- * Class WechatController
- * @package App\Http\Controllers\Api
+ * Class WechatController.
  */
 class WechatController extends Controller
 {
@@ -21,7 +19,6 @@ class WechatController extends Controller
      * @var MemberRepository
      */
     protected $memberRepository;
-
 
     /**
      * @var SettingRepository
@@ -49,44 +46,44 @@ class WechatController extends Controller
     {
         //APPID
         $appkey = request('appkey');
-        if (!$appkey) {
+        if (! $appkey) {
             return response()->json([
                 'code' => '4000',
-                'message' => 'Required Appkey'
+                'message' => 'Required Appkey',
             ]);
         }
         //APPID 解密
         $decodeID = Hashids::decode(request('appid'));
-        if (!$decodeID) {
+        if (! $decodeID) {
             return response()->json([
                 'code' => '4001',
-                'message' => 'Appid Error'
+                'message' => 'Appid Error',
             ]);
         }
         $userID = $decodeID[0];
 
         //验证code
         $code = request('code');
-        if (!$code) {
+        if (! $code) {
             return response()->json([
                 'code' => '4002',
-                'message' => 'Required Code'
+                'message' => 'Required Code',
             ]);
         }
         //验证encryptedData
         $encryptedData = request('encryptedData');
-        if (!$encryptedData) {
+        if (! $encryptedData) {
             return response()->json([
                 'code' => '4003',
-                'message' => 'Required EncryptedData'
+                'message' => 'Required EncryptedData',
             ]);
         }
         //验证iv
         $iv = request('iv');
-        if (!$iv) {
+        if (! $iv) {
             return response()->json([
                 'code' => '4004',
-                'message' => 'Required iv'
+                'message' => 'Required iv',
             ]);
         }
 
@@ -95,39 +92,36 @@ class WechatController extends Controller
             'user_id' => $userID,
         ])->first();
 
-
         //小程序配置信息
         $config = json_decode($setting->mini_program, true);
         $miniProgram = Factory::miniProgram($config);
 
         $session = $miniProgram->auth->session($code);
 
-        if (!isset($session['session_key'])) {
+        if (! isset($session['session_key'])) {
             return response()->json([
                 'code' => '4005',
-                'message' => 'UserInfo Get Failed'
+                'message' => 'UserInfo Get Failed',
             ]);
         }
         //解密用户信息
         $data = $miniProgram->encryptor->decryptData($session['session_key'], $iv, $encryptedData);
-        if (!$data) {
+        if (! $data) {
             return response()->json([
                 'code' => '4006',
-                'message' => 'UserInfo Decode Failed'
+                'message' => 'UserInfo Decode Failed',
             ]);
         }
 
         //判断是否为新用户
         $insert['user_id'] = $userID;
         $insert['nickname'] = $data['nickName'];
-        $insert['headimgurl'] = !empty($data['avatarUrl']) ? $data['avatarUrl'] : '';
+        $insert['headimgurl'] = ! empty($data['avatarUrl']) ? $data['avatarUrl'] : '';
         $insert['openid'] = $data['openId'];
 
-
         $member = $this->memberRepository->updateOrCreate([
-            'openid' => $data['openid']
+            'openid' => $data['openid'],
         ], $insert);
-
 
         //返回token
         return $this->response->array([
@@ -136,5 +130,4 @@ class WechatController extends Controller
             'token' => Auth::guard('api')->login($member),
         ]);
     }
-
 }

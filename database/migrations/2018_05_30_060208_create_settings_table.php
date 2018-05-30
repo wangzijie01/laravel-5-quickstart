@@ -21,7 +21,6 @@ class CreateSettingsTable extends Migration
             $table->text('other')->nullable();
             $table->timestamps();
             $table->index(['user_id']);
-
         });
     }
 
