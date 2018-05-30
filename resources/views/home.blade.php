@@ -66,29 +66,29 @@
                 <div class="top-right links">
                     @auth
                         @role('administrator')
-                            <a href="{{ route('home') }}">主页</a>
-                            <a href="{{ route('admin.dashboard') }}">后台</a>
+                            <a href="{{ route('home') }}">Home</a>
+                            <a href="{{ route('admin.dashboard') }}">Admin</a>
                         @else
-                            <a href="{{ route('home') }}">主页</a>
+                            <a href="{{ route('home') }}">Home</a>
                         @endrole
                     @else
-                        <a href="{{ route('login') }}">登录</a>
-                        <a href="{{ route('register') }}">注册</a>
+                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('register') }}">Register</a>
                     @endauth
                 </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel 5.6 Boilerplate
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://laravel-china.org/docs/laravel/5.6">Documentation</a>
+                    <a href="https://github.com/tymondesigns/jwt-auth">jwt-auth</a>
+                    <a href="https://github.com/spatie/laravel-permission">laravel-permission</a>
+                    <a href="https://github.com/andersao/l5-repository">l5-repository</a>
+                    <a href="https://github.com/niugengyun/laravel-5-quickstart">GitHub</a>
                 </div>
             </div>
         </div>

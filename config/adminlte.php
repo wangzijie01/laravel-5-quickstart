@@ -108,7 +108,7 @@ return [
     */
 
     'menu' => [
-        '系统',
+        '主菜单',
         [
             'text' => '用户管理',
             'url'  => 'admin/user',
@@ -124,18 +124,17 @@ return [
             'url'  => 'admin/article',
             'icon' => 'file',
         ],
-        '标签',
         [
-            'text'       => 'Important',
-            'icon_color' => 'red',
+            'text' => '店招管理',
+            'url'  => 'admin/banner',
+            'icon' => 'image',
         ],
+
+        '系统',
         [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'Information',
-            'icon_color' => 'aqua',
+            'text' => '系统设置',
+            'url'  => 'admin/setting',
+            'icon' => 'cogs',
         ],
     ],
 

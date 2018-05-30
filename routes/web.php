@@ -5,19 +5,19 @@
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| 路由根据模块独立出单独的文件
+| 这样多人协同开发时同时编辑路由，代码不会冲突
 |
 */
 
 /**
- * 前台.
+ * 前台
  */
 Route::get('/', 'HomeController@index')->name('home');
 
+
 /*
- * Auth
+ * 登录注册
  */
 Auth::routes();
 
@@ -28,24 +28,18 @@ Route::namespace('Wechat')
     ->as('wechat.')
     ->prefix('wechat')
     ->group(function () {
-        Route::any('/', 'WechatController@serve')->name('serve');
+        include_route_files(__DIR__ . '/wechat/');
     });
 
-/*
+
+/**
  * 后台
  */
-Route::namespace('Admin')
+Route::prefix('admin')
+    ->namespace('Admin')
     ->middleware(['role:administrator'])
     ->as('admin.')
-    ->prefix('admin')
     ->group(function () {
-        Route::get('/', 'DashboardController@index')->name('dashboard');
-        Route::any('upload', 'UploadController@index')->name('upload');
-        Route::resource('user', 'UserController');
-        Route::resource('member', 'MemberController', ['except' => [
-            'create', 'store',
-        ]]);
-        Route::resource('article', 'ArticleController', ['except' => [
-            'show'
-        ]]);
+        include_route_files(__DIR__ . '/admin/');
     });
+

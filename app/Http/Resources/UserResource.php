@@ -14,9 +14,16 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
+
         return [
-            'name' => $this->name,
-            'email' => $this->email,
+            'data' => $this->collection,
+            'links' => [
+                'self' => 'link-value',
+            ],
         ];
+//        return [
+//            'name' => $this->name,
+//            'email' => $this->email,
+//        ];
     }
 }

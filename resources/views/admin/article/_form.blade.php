@@ -23,7 +23,8 @@
         </div>
 
         <div class="input-group">
-            <img src="@if(isset($article))  {{ $article->thumb }} @else {{ asset('/images/nopic.jpg') }} @endif" id="thumb-preview" class="img-responsive img-thumbnail">
+            <img src="@if(isset($article))  {{ $article->thumb }} @else {{ asset('/images/nopic.jpg') }} @endif"
+                 id="thumb-preview" class="img-responsive img-thumbnail">
         </div>
     </div>
 </div>
@@ -70,7 +71,7 @@
                 dataType: 'json',
                 type: 'POST',
                 done: function (e, data) {
-                    if (data.result.status_code == 201) {
+                    if (data.result.code > 5000) {
                         alert(data.result.message);
                         return;
                     }
@@ -82,12 +83,15 @@
 
     </script>
     <script type="text/javascript">
-        var ue = UE.getEditor('container',{
+        var ue = UE.getEditor('container', {
             autoHeightEnabled: true,
             initialFrameHeight: 500,
-            autoFloatEnabled: false
+            autoFloatEnabled: false,
+            toolbars: [
+                ['fullscreen', 'source', 'bold', 'italic', 'underline', '|', 'justifyleft', 'justifyright', 'justifycenter', '|', 'removeformat', 'formatmatch', 'forecolor', 'autotypeset', '|', 'simpleupload', 'insertimage']
+            ]
         });
-        ue.ready(function() {
+        ue.ready(function () {
             ue.execCommand('serverparam', '_token', '{{ csrf_token() }}'); // 设置 CSRF token.
         });
     </script>

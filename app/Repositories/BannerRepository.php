@@ -2,10 +2,10 @@
 
 namespace  App\Repositories;
 
-use App\Models\Article;
+use App\Models\Banner;
 use Prettus\Repository\Eloquent\BaseRepository;
 
-class ArticleRepository extends BaseRepository
+class BannerRepository extends BaseRepository
 {
     /**
      * Specify Model class name.
@@ -14,7 +14,7 @@ class ArticleRepository extends BaseRepository
      */
     public function model()
     {
-        return Article::class;
+        return Banner::class;
     }
 
 

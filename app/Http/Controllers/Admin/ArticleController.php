@@ -6,8 +6,8 @@ use App\Models\Article;
 use App\DataTables\ArticleDataTable;
 use App\Http\Controllers\Controller;
 use App\Repositories\ArticleRepository;
-use App\Http\Requests\Article\StoreArticleRequest;
-use App\Http\Requests\Article\UpdateArticleRequest;
+use App\Http\Requests\Article\StoreBannerRequest;
+use App\Http\Requests\Article\UpdateBannerRequest;
 use function auth;
 use function dd;
 use function flash;
@@ -47,18 +47,15 @@ class ArticleController extends Controller
     }
 
     /**
-     * @param StoreArticleRequest $request
+     * @param StoreBannerRequest $request
      * @return \Illuminate\Http\RedirectResponse|void
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(StoreArticleRequest $request)
+    public function store(StoreBannerRequest $request)
     {
-        $data = [
-            'user_id' => auth()->user()->id,
-            'title' => request('title'),
-            'thumb' => request('thumb'),
-            'content' => request('content'),
-        ];
+        $data = $request->all();
+
+        $data['user_id'] = auth()->user()->id;
 
         $this->articleRepository->create($data);
 
@@ -88,19 +85,16 @@ class ArticleController extends Controller
     }
 
     /**
-     * @param UpdateArticleRequest $request
+     * @param UpdateBannerRequest $request
      * @param Article $article
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(UpdateArticleRequest $request, Article $article)
+    public function update(UpdateBannerRequest $request, Article $article)
     {
-        $data = [
-            'user_id' => auth()->user()->id,
-            'title' => request('title'),
-            'thumb' => request('thumb'),
-            'content' => request('content'),
-        ];
+        $data = $request->all();
+
+        $data['user_id'] = auth()->user()->id;
 
         $this->articleRepository->update($data, $article->id);
 
