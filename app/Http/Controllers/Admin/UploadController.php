@@ -37,6 +37,7 @@ class UploadController extends Controller
                 ]);
             }
             $filePath = Storage::disk('local')->putFileAs('apiclient/' . Hashids::encode(session('uuid')), $file, $fileName);
+
             return response()->json([
                 'code' => '1001',
                 'message' => '上传成功',
@@ -59,6 +60,17 @@ class UploadController extends Controller
                 'url' => Storage::url($filePath),
             ]);
         }
+        <<<<
+        <<< HEAD
 
+=======
+        $path = 'images/'.date('Ymd');
+        $filePath = $file->store($path);
+
+        return response()->json([
+            'status_code' => '200',
+            'url' => Storage::url($filePath),
+        ]);
+>>>>>>> fc62cd5d8dca97ee602c478df3299afc4c3478f2
     }
 }

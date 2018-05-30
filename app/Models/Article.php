@@ -18,9 +18,8 @@ class Article extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id','title', 'thumb', 'content',
+        'user_id', 'title', 'thumb', 'content',
     ];
-
 
     /**
      * 内关联.
@@ -31,7 +30,6 @@ class Article extends Model
         return $this->belongsTo('App\Models\User', 'user_id');
     }
 
-
     /**
      * 操作按钮.
      * @return string
@@ -39,7 +37,7 @@ class Article extends Model
     public function getActionButtonsAttribute()
     {
         return
-            $this->getEditButtonAttribute() .
+            $this->getEditButtonAttribute().
             $this->getDeleteButtonAttribute();
     }
 
@@ -49,7 +47,7 @@ class Article extends Model
      */
     protected function getEditButtonAttribute()
     {
-        return '<a href="' . route('admin.article.edit', $this) . '" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="编辑"></i></a> ';
+        return '<a href="'.route('admin.article.edit', $this).'" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="编辑"></i></a> ';
     }
 
     /**
@@ -58,7 +56,7 @@ class Article extends Model
      */
     protected function getDeleteButtonAttribute()
     {
-        return '<a href="' . route('admin.article.destroy', $this) . '"
+        return '<a href="'.route('admin.article.destroy', $this).'"
              data-method="delete"
              data-trans-button-cancel="取消"
              data-trans-button-confirm="删除"

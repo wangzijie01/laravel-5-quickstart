@@ -42,4 +42,3 @@ Route::prefix('admin')
     ->group(function () {
         include_route_files(__DIR__ . '/admin/');
     });
-
