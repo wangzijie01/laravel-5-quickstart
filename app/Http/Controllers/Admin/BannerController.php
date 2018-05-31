@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use function auth;
+use function flash;
 use App\Models\Banner;
 use App\DataTables\BannerDataTable;
 use App\Http\Controllers\Controller;
 use App\Repositories\BannerRepository;
 use App\Http\Requests\Banner\StoreBannerRequest;
 use App\Http\Requests\Banner\UpdateSettingRequest;
-use function auth;
-use function dd;
-use function flash;
-use function request;
 
 class BannerController extends Controller
 {
@@ -92,13 +90,11 @@ class BannerController extends Controller
      */
     public function update(UpdateSettingRequest $request, Banner $banner)
     {
-
         $data = $request->all();
 
         $data['user_id'] = auth()->user()->id;
 
         $this->bannerRepository->update($data, $banner->id);
-
 
         flash('店招信息修改成功')->success()->important();
 

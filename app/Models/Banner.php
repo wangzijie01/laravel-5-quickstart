@@ -21,7 +21,6 @@ class Banner extends Model
         'user_id', 'sort', 'status', 'image',
     ];
 
-
     /**
      * 状态
      * @return string
@@ -34,9 +33,9 @@ class Banner extends Model
         if ($this->status == 1) {
             return '<label class="label label-primary">显示</label>';
         }
+
         return '';
     }
-
 
     /**
      * 操作按钮.
@@ -45,7 +44,7 @@ class Banner extends Model
     public function getActionButtonsAttribute()
     {
         return
-            $this->getEditButtonAttribute() .
+            $this->getEditButtonAttribute().
             $this->getDeleteButtonAttribute();
     }
 
@@ -55,7 +54,7 @@ class Banner extends Model
      */
     protected function getEditButtonAttribute()
     {
-        return '<a href="' . route('admin.banner.edit', $this) . '" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="编辑"></i></a> ';
+        return '<a href="'.route('admin.banner.edit', $this).'" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="编辑"></i></a> ';
     }
 
     /**
@@ -64,7 +63,7 @@ class Banner extends Model
      */
     protected function getDeleteButtonAttribute()
     {
-        return '<a href="' . route('admin.banner.destroy', $this) . '"
+        return '<a href="'.route('admin.banner.destroy', $this).'"
              data-method="delete"
              data-trans-button-cancel="取消"
              data-trans-button-confirm="删除"

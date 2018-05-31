@@ -16,6 +16,4 @@ class BannerRepository extends BaseRepository
     {
         return Banner::class;
     }
-
-
 }

@@ -3,17 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Vinkla\Hashids\Facades\Hashids;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-use Vinkla\Hashids\Facades\Hashids;
 
 class UploadController extends Controller
 {
     public function index(Request $request)
     {
-
         $file = $request->file('file');
-        if (!$file) {
+        if (! $file) {
             return response()->json([
                 'code' => '5001',
                 'message' => '上传失败',
@@ -23,20 +22,20 @@ class UploadController extends Controller
         if (request('type') == 2) {
             //获取上传目录
             $fileName = $file->getClientOriginalName();
-            if (!in_array($fileName, ['apiclient_key.pem', 'apiclient_cert.pem'])) {
+            if (! in_array($fileName, ['apiclient_key.pem', 'apiclient_cert.pem'])) {
                 return response()->json([
                     'code' => '5002',
                     'message' => '请上传对应名称的证书',
                 ]);
             }
             $fileExtension = $file->getClientOriginalExtension();
-            if ($fileExtension != "pem") {
+            if ($fileExtension != 'pem') {
                 return response()->json([
                     'code' => '5003',
                     'message' => '证书格式错误',
                 ]);
             }
-            $filePath = Storage::disk('local')->putFileAs('apiclient/' . Hashids::encode(session('uuid')), $file, $fileName);
+            $filePath = Storage::disk('local')->putFileAs('apiclient/'.Hashids::encode(session('uuid')), $file, $fileName);
 
             return response()->json([
                 'code' => '1001',
@@ -46,14 +45,15 @@ class UploadController extends Controller
         } else {
             //图片
             $mimeType = $file->getClientMimeType();
-            if (!str_contains($mimeType, 'image/')) {
+            if (! str_contains($mimeType, 'image/')) {
                 return response()->json([
                     'code' => '5004',
                     'message' => '图片格式错误',
                 ]);
             }
-            $path = 'images/' . date('Ymd');
+            $path = 'images/'.date('Ymd');
             $filePath = $file->store($path);
+
             return response()->json([
                 'code' => '1001',
                 'message' => '上传成功',

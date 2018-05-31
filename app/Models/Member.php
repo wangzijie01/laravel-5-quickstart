@@ -49,7 +49,6 @@ class Member extends Model implements JWTSubject, AuthenticatableContract
         return [];
     }
 
-
     /**
      * 内关联.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
