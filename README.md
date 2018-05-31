@@ -45,6 +45,11 @@ composer update && npm install && npm run dev
 ```bash
 php artisan migrate && php artisan db:seed
 ```
+5.**配置jwt-auth**
+
+```bash
+php artisan jwt:secret
+```
 
 ## 开发规范
 
