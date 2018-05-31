@@ -49,18 +49,6 @@ php artisan migrate && php artisan db:seed
 php artisan jwt:secret
 ```
 
-## 开发规范
-
-1. 数据库操作采用依赖注入
-
-2. 尽可能的避免在控制器直接操作数据库
-
-3. 创建Request验证表单
-
-4. 所有控制器方法注释一定要规范
-
-5. 接口返回数据一定要规范
-
 ## 用到的包
 
 - [InfyOmLabs/adminlte-templates](https://github.com/InfyOmLabs/adminlte-templates)
