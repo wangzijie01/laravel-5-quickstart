@@ -25,7 +25,7 @@
 
 
 ## 安装
-Å
+
 1.**克隆项目**
 
 ```bash
@@ -73,9 +73,9 @@ php artisan jwt:secret
 - [prettus/l5-repository](https://github.com/andersao/l5-repository)
 - [spatie/laravel-permission](https://github.com/spatie/laravel-permission)
 - [yajra/laravel-datatables](https://github.com/yajra/laravel-datatables)
-- [dingo/api](https://github.com/dingo/api)
 - [fxcosta/laravel-chartjs](https://github.com/fxcosta/laravel-chartjs)
-
+- [vinkla/hashids](https://github.com/vinkla/laravel-hashids)
+- [tymon/jwt-auth](https://github.com/tymondesigns/jwt-auth)
 
 ## 推荐包
 
@@ -85,6 +85,5 @@ php artisan jwt:secret
 - [maatwebsite/excel](https://github.com/Maatwebsite/Laravel-Excel)
 - [orzcc/taobao-top-client](https://github.com/orzcc/taobao-top-client)
 - [sentry/sentry-laravel](https://github.com/getsentry/sentry-laravel)
-- [vinkla/hashids](https://github.com/vinkla/laravel-hashids)
-- [tymon/jwt-auth](https://github.com/tymondesigns/jwt-auth)
+
 
