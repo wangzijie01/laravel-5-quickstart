@@ -33,6 +33,11 @@ class UserController extends Controller
     {
         $users = $this->userRepository->paginate();
 
-        return UserResource::collection($users);
+        //additional  添加额外参数
+        return UserResource::collection($users)
+            ->additional([
+                'code' => 1001,
+                'message' => '用户获取成功',
+            ]);
     }
 }
