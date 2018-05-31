@@ -3,13 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Auth\Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+
 
 /**
  * Class Member.
  */
-class Member extends Model implements JWTSubject
+class Member extends Model implements JWTSubject, AuthenticatableContract
 {
+
+    use Authenticatable;
+
     /**
      * @var string
      */
@@ -18,8 +24,7 @@ class Member extends Model implements JWTSubject
     /**
      * @var array
      */
-    protected $fillable = ['nickname'];
-
+    protected $guarded = [];
 
 
     // Rest omitted for brevity
@@ -99,9 +104,9 @@ class Member extends Model implements JWTSubject
     public function getMemberAvatarAttribute()
     {
         $headimgurl = "<img src='{$this->headimgurl}' width='20' height='20'/>";
-        $nickname = "<a href='".route('admin.member.index', ['member_id' => $this])."'>".$this->nickname.'</a>';
+        $nickname = "<a href='" . route('admin.member.index', ['member_id' => $this]) . "'>" . $this->nickname . '</a>';
 
-        return $headimgurl.'  '.$nickname;
+        return $headimgurl . '  ' . $nickname;
     }
 
     /**
@@ -114,9 +119,9 @@ class Member extends Model implements JWTSubject
             return "<label class='label label-success'>无<label>";
         }
         $headimgurl = "<img src='{$this->inviter->headimgurl}' width='20' height='20'/>";
-        $nickname = "<a href='".route('admin.member.index', ['inviter_id' => $this->inviter])."'>".$this->inviter->nickname.'</a>';
+        $nickname = "<a href='" . route('admin.member.index', ['inviter_id' => $this->inviter]) . "'>" . $this->inviter->nickname . '</a>';
 
-        return $headimgurl.'  '.$nickname;
+        return $headimgurl . '  ' . $nickname;
     }
 
     /**
@@ -126,8 +131,8 @@ class Member extends Model implements JWTSubject
     public function getActionButtonsAttribute()
     {
         return
-            $this->getShowButtonAttribute().
-            $this->getEditButtonAttribute().
+            $this->getShowButtonAttribute() .
+            $this->getEditButtonAttribute() .
             $this->getDeleteButtonAttribute();
     }
 
@@ -137,7 +142,7 @@ class Member extends Model implements JWTSubject
      */
     protected function getShowButtonAttribute()
     {
-        return '<a href="'.route('admin.member.show', $this).'" class="btn btn-xs btn-info"><i class="fa fa-search" data-toggle="tooltip" data-placement="top" title="查看详情"></i></a> ';
+        return '<a href="' . route('admin.member.show', $this) . '" class="btn btn-xs btn-info"><i class="fa fa-search" data-toggle="tooltip" data-placement="top" title="查看详情"></i></a> ';
     }
 
     /**
@@ -146,7 +151,7 @@ class Member extends Model implements JWTSubject
      */
     protected function getEditButtonAttribute()
     {
-        return '<a href="'.route('admin.member.edit', $this).'" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="编辑"></i></a> ';
+        return '<a href="' . route('admin.member.edit', $this) . '" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="编辑"></i></a> ';
     }
 
     /**
@@ -155,7 +160,7 @@ class Member extends Model implements JWTSubject
      */
     protected function getDeleteButtonAttribute()
     {
-        return '<a href="'.route('admin.member.destroy', $this).'"
+        return '<a href="' . route('admin.member.destroy', $this) . '"
              data-method="delete"
              data-trans-button-cancel="取消"
              data-trans-button-confirm="删除"

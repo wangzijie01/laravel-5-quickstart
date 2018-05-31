@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Auth;
 
 class Handler extends ExceptionHandler
 {
@@ -53,6 +54,32 @@ class Handler extends ExceptionHandler
             return redirect('/');
         }
 
+        if ($exception instanceof \Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException) {
+
+            //判断token是否存在
+            if (!Auth::guard('api')->parser()->setRequest($request)->hasToken()) {
+                return response()->json([
+                    'code' => 4002,
+                    'message' => 'Token not provided'
+                ]);
+            }
+
+            //判断token是否正常
+            try {
+                if (!Auth::guard('api')->parseToken()->authenticate()) {
+                    return response()->json([
+                        'code' => 4003,
+                        'message' => 'jwt-auth: Member not found'
+                    ]);
+                }
+            } catch (Exception $e) {
+                return response()->json([
+                    'code' => 4004,
+                    'message' => 'jwt-auth: Token is error'
+                ]);
+            }
+
+        }
         return parent::render($request, $exception);
     }
 }
