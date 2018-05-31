@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Repositories\MemberRepository;
 use function auth;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use function response;
+use App\Http\Controllers\Controller;
+use App\Repositories\MemberRepository;
 
 class LoginController extends Controller
 {
@@ -38,7 +37,7 @@ class LoginController extends Controller
         return response()->json([
             'code' => 1001,
             'message' => 'Login Success',
-            'token' => $token
+            'token' => $token,
         ]);
     }
 }
