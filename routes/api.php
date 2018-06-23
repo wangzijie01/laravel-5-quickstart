@@ -19,7 +19,7 @@
 //    });
 
 Route::namespace('Api')
-    ->middleware(['jwt.auth'])
+    ->middleware(['auth:api','jwt.auth'])
     ->group(function () {
         Route::get('/user', 'UserController@index');
     });
